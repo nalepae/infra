@@ -55,7 +55,6 @@ services:
       - --monitoring-host=0.0.0.0
       - --pprof
       - --pprofaddr=0.0.0.0
-      - --enable-state-diff
     environment:
       - BEACON_IMAGE=${BEACON_IMAGE}
       - NETWORK=${NETWORK}
