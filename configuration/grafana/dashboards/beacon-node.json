@@ -111,7 +111,7 @@
         "x": 0,
         "y": 1
       },
-      "id": 21,
+      "id": 15,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -138,14 +138,14 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "beacon_clock_time_slot",
+          "expr": "floor(beacon_clock_time_slot/32)",
           "instant": true,
-          "legendFormat": "slot",
+          "legendFormat": "epoch",
           "range": false,
           "refId": "A"
         }
       ],
-      "title": "Slot",
+      "title": "Epoch",
       "transparent": true,
       "type": "stat"
     },
@@ -329,7 +329,7 @@
         "x": 0,
         "y": 4
       },
-      "id": 15,
+      "id": 21,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -356,14 +356,14 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "floor(beacon_clock_time_slot/32)",
+          "expr": "beacon_clock_time_slot",
           "instant": true,
-          "legendFormat": "epoch",
+          "legendFormat": "slot",
           "range": false,
           "refId": "A"
         }
       ],
-      "title": "Epoch",
+      "title": "Slot",
       "transparent": true,
       "type": "stat"
     },
@@ -8107,13 +8107,13 @@
     ]
   },
   "time": {
-    "from": "2026-04-28T10:13:20.414Z",
-    "to": "2026-04-28T11:13:20.414Z"
+    "from": "now-1h",
+    "to": "now"
   },
   "timepicker": {},
   "timezone": "utc",
   "title": "Beacon node",
   "uid": "adnmforf",
-  "version": 6,
+  "version": 3,
   "weekStart": ""
 }
