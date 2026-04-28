@@ -129,7 +129,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -201,7 +201,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -276,7 +276,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -347,7 +347,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -462,7 +462,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -560,7 +560,7 @@
         "x": 12,
         "y": 8
       },
-      "id": 7,
+      "id": 112,
       "options": {
         "legend": {
           "calcs": [],
@@ -574,7 +574,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -586,7 +586,7 @@
           "expr": "go_memstats_alloc_bytes{job=\"beacon\"}",
           "format": "time_series",
           "instant": false,
-          "legendFormat": "current",
+          "legendFormat": "[inst]",
           "range": true,
           "refId": "B"
         },
@@ -596,283 +596,14 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "go_memstats_alloc_bytes{job=\"beacon\"} offset 35073s",
-          "instant": false,
-          "legendFormat": "ref",
-          "range": true,
-          "refId": "C"
-        }
-      ],
-      "title": "Memory usage heap [inst]",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 50,
-            "gradientMode": "opacity",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "smooth",
-            "lineWidth": 2,
-            "pointSize": 0,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "diff"
-            },
-            "properties": [
-              {
-                "id": "custom.axisPlacement",
-                "value": "right"
-              }
-            ]
-          },
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "blockRoots",
-                  "eth1DataVotes",
-                  "randaoMixes",
-                  "stateRoots",
-                  "validators"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": false,
-                  "tooltip": true,
-                  "viz": true
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 16
-      },
-      "id": 109,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "multi",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "12.4.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "increase(field_trie_recompute_indices_sum[1m]) / increase(field_trie_recompute_indices_count[1m])",
-          "format": "time_series",
-          "instant": false,
-          "legendFormat": "{{field}}",
-          "range": true,
-          "refId": "B"
-        }
-      ],
-      "title": "Recompute tries indices count [1m]",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 50,
-            "gradientMode": "opacity",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "smooth",
-            "lineWidth": 2,
-            "pointSize": 0,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "bytes"
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "diff"
-            },
-            "properties": [
-              {
-                "id": "custom.axisPlacement",
-                "value": "right"
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 16
-      },
-      "id": 96,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "multi",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "12.4.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "exemplar": false,
           "expr": "avg_over_time(go_memstats_alloc_bytes{job=\"beacon\"}[2h])",
-          "format": "time_series",
           "instant": false,
-          "legendFormat": "current",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "avg_over_time(go_memstats_alloc_bytes{job=\"beacon\"}[2h] offset 35073s)",
-          "instant": false,
-          "legendFormat": "ref",
+          "legendFormat": "[2h]",
           "range": true,
           "refId": "C"
         }
       ],
-      "title": "Memory usage heap [2h]",
+      "title": "Memory usage heap",
       "type": "timeseries"
     },
     {
@@ -966,7 +697,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 24
+        "y": 16
       },
       "id": 76,
       "options": {
@@ -982,7 +713,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -1069,135 +800,6 @@
               }
             ]
           },
-          "unit": "decbytes"
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "relative"
-            },
-            "properties": [
-              {
-                "id": "custom.axisPlacement",
-                "value": "right"
-              },
-              {
-                "id": "unit",
-                "value": "percentunit"
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 24
-      },
-      "id": 97,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "multi",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "12.4.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "avg_over_time(go_memstats_alloc_bytes{job=\"beacon\"}[2h] offset 35073s) - avg_over_time(go_memstats_alloc_bytes{job=\"beacon\"}[2h])",
-          "instant": false,
-          "legendFormat": "absolute",
-          "range": true,
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "(avg_over_time(go_memstats_alloc_bytes{job=\"beacon\"}[2h] offset 35073s) - avg_over_time(go_memstats_alloc_bytes{job=\"beacon\"}[2h]))/avg_over_time(go_memstats_alloc_bytes{job=\"beacon\"}[2h] offset 35073s)",
-          "instant": false,
-          "legendFormat": "relative",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Memory usage heap diff [2h]",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 50,
-            "gradientMode": "opacity",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "smooth",
-            "lineWidth": 2,
-            "pointSize": 0,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
           "unit": "bytes"
         },
         "overrides": []
@@ -1205,8 +807,8 @@
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 0,
-        "y": 32
+        "x": 12,
+        "y": 16
       },
       "id": 95,
       "options": {
@@ -1222,7 +824,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -1242,10 +844,10 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "avg_over_time(go_memstats_stack_sys_bytes{job=\"beacon\"}[4h])",
+          "expr": "avg_over_time(go_memstats_stack_sys_bytes{job=\"beacon\"}[2h])",
           "format": "time_series",
           "instant": false,
-          "legendFormat": "[4h]",
+          "legendFormat": "[2h]",
           "range": true,
           "refId": "B"
         }
@@ -1259,7 +861,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 40
+        "y": 24
       },
       "id": 13,
       "panels": [],
@@ -1377,7 +979,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 41
+        "y": 25
       },
       "id": 5,
       "options": {
@@ -1393,7 +995,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -1533,7 +1135,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 41
+        "y": 25
       },
       "id": 6,
       "options": {
@@ -1549,7 +1151,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -1669,7 +1271,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 49
+        "y": 33
       },
       "id": 4,
       "options": {
@@ -1685,7 +1287,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -1801,7 +1403,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 49
+        "y": 33
       },
       "id": 24,
       "options": {
@@ -1817,7 +1419,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -1925,7 +1527,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 57
+        "y": 41
       },
       "id": 19,
       "options": {
@@ -1941,7 +1543,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -2061,7 +1663,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 57
+        "y": 41
       },
       "id": 3,
       "options": {
@@ -2077,7 +1679,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -2171,7 +1773,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 65
+        "y": 49
       },
       "id": 23,
       "options": {
@@ -2187,7 +1789,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -2295,7 +1897,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 65
+        "y": 49
       },
       "id": 10,
       "options": {
@@ -2311,7 +1913,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -2406,7 +2008,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 73
+        "y": 57
       },
       "id": 110,
       "options": {
@@ -2422,7 +2024,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -2457,7 +2059,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 81
+        "y": 65
       },
       "id": 62,
       "panels": [],
@@ -2530,7 +2132,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 82
+        "y": 66
       },
       "id": 60,
       "options": {
@@ -2546,7 +2148,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -2641,7 +2243,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 82
+        "y": 66
       },
       "id": 74,
       "options": {
@@ -2657,7 +2259,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -2764,7 +2366,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 90
+        "y": 74
       },
       "id": 108,
       "options": {
@@ -2780,7 +2382,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -2806,7 +2408,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 98
+        "y": 82
       },
       "id": 66,
       "panels": [],
@@ -2891,7 +2493,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 99
+        "y": 83
       },
       "id": 67,
       "options": {
@@ -2908,7 +2510,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -3002,7 +2604,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 99
+        "y": 83
       },
       "id": 71,
       "options": {
@@ -3019,7 +2621,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -3138,7 +2740,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 107
+        "y": 91
       },
       "id": 72,
       "options": {
@@ -3155,7 +2757,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -3178,7 +2780,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 115
+        "y": 99
       },
       "id": 22,
       "panels": [],
@@ -3209,7 +2811,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 116
+        "y": 100
       },
       "id": 80,
       "options": {
@@ -3247,7 +2849,7 @@
           "unit": "ms"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -3289,7 +2891,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 116
+        "y": 100
       },
       "id": 50,
       "options": {
@@ -3327,7 +2929,7 @@
           "unit": "ms"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -3411,7 +3013,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 124
+        "y": 108
       },
       "id": 56,
       "options": {
@@ -3427,7 +3029,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -3522,7 +3124,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 124
+        "y": 108
       },
       "id": 61,
       "options": {
@@ -3538,7 +3140,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -3633,7 +3235,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 132
+        "y": 116
       },
       "id": 46,
       "options": {
@@ -3649,7 +3251,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -3744,7 +3346,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 132
+        "y": 116
       },
       "id": 51,
       "options": {
@@ -3760,7 +3362,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -3855,7 +3457,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 140
+        "y": 124
       },
       "id": 63,
       "options": {
@@ -3871,7 +3473,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -3965,7 +3567,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 140
+        "y": 124
       },
       "id": 52,
       "options": {
@@ -3981,7 +3583,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -4076,7 +3678,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 148
+        "y": 132
       },
       "id": 59,
       "options": {
@@ -4092,7 +3694,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -4187,7 +3789,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 148
+        "y": 132
       },
       "id": 45,
       "options": {
@@ -4203,7 +3805,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -4327,7 +3929,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 156
+        "y": 140
       },
       "id": 57,
       "options": {
@@ -4343,7 +3945,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -4408,7 +4010,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 156
+        "y": 140
       },
       "id": 47,
       "options": {
@@ -4446,7 +4048,7 @@
           "unit": "ms"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -4488,7 +4090,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 164
+        "y": 148
       },
       "id": 55,
       "options": {
@@ -4526,7 +4128,7 @@
           "unit": "ms"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -4610,7 +4212,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 164
+        "y": 148
       },
       "id": 49,
       "options": {
@@ -4626,7 +4228,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -4679,7 +4281,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 172
+        "y": 156
       },
       "id": 48,
       "options": {
@@ -4717,7 +4319,7 @@
           "unit": "ms"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -4741,7 +4343,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 180
+        "y": 164
       },
       "id": 27,
       "panels": [],
@@ -4814,7 +4416,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 181
+        "y": 165
       },
       "id": 69,
       "options": {
@@ -4830,7 +4432,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -4925,7 +4527,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 181
+        "y": 165
       },
       "id": 73,
       "options": {
@@ -4941,7 +4543,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -5036,7 +4638,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 189
+        "y": 173
       },
       "id": 78,
       "options": {
@@ -5052,7 +4654,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -5134,7 +4736,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 189
+        "y": 173
       },
       "id": 85,
       "options": {
@@ -5150,7 +4752,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -5232,7 +4834,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 197
+        "y": 181
       },
       "id": 86,
       "options": {
@@ -5248,7 +4850,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -5330,7 +4932,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 197
+        "y": 181
       },
       "id": 64,
       "options": {
@@ -5346,7 +4948,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -5428,7 +5030,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 205
+        "y": 189
       },
       "id": 87,
       "options": {
@@ -5444,7 +5046,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -5555,7 +5157,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 205
+        "y": 189
       },
       "id": 88,
       "options": {
@@ -5571,7 +5173,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -5677,7 +5279,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 213
+        "y": 197
       },
       "id": 91,
       "options": {
@@ -5693,7 +5295,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -5800,7 +5402,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 213
+        "y": 197
       },
       "id": 83,
       "options": {
@@ -5816,7 +5418,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -5911,7 +5513,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 221
+        "y": 205
       },
       "id": 89,
       "options": {
@@ -5927,7 +5529,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -6009,7 +5611,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 221
+        "y": 205
       },
       "id": 101,
       "options": {
@@ -6025,7 +5627,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -6125,7 +5727,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 229
+        "y": 213
       },
       "id": 103,
       "options": {
@@ -6141,7 +5743,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -6284,7 +5886,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 229
+        "y": 213
       },
       "id": 99,
       "options": {
@@ -6300,7 +5902,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -6407,7 +6009,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 237
+        "y": 221
       },
       "id": 102,
       "options": {
@@ -6423,7 +6025,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -6537,7 +6139,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 237
+        "y": 221
       },
       "id": 100,
       "options": {
@@ -6553,7 +6155,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -6661,7 +6263,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 245
+        "y": 229
       },
       "id": 98,
       "options": {
@@ -6677,7 +6279,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -6703,7 +6305,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 253
+        "y": 237
       },
       "id": 29,
       "panels": [],
@@ -6776,7 +6378,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 254
+        "y": 238
       },
       "id": 30,
       "options": {
@@ -6792,7 +6394,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -6874,7 +6476,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 254
+        "y": 238
       },
       "id": 31,
       "options": {
@@ -6890,7 +6492,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -6990,7 +6592,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 262
+        "y": 246
       },
       "id": 32,
       "options": {
@@ -7006,7 +6608,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -7059,7 +6661,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 262
+        "y": 246
       },
       "id": 33,
       "options": {
@@ -7097,7 +6699,7 @@
           "unit": "ms"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -7139,7 +6741,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 270
+        "y": 254
       },
       "id": 34,
       "options": {
@@ -7177,7 +6779,7 @@
           "unit": "ms"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -7278,7 +6880,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 270
+        "y": 254
       },
       "id": 35,
       "options": {
@@ -7294,7 +6896,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -7347,7 +6949,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 278
+        "y": 262
       },
       "id": 36,
       "options": {
@@ -7385,7 +6987,7 @@
           "unit": "ms"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -7427,7 +7029,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 278
+        "y": 262
       },
       "id": 37,
       "options": {
@@ -7465,7 +7067,7 @@
           "unit": "ms"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -7565,7 +7167,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 286
+        "y": 270
       },
       "id": 38,
       "options": {
@@ -7581,7 +7183,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -7634,7 +7236,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 286
+        "y": 270
       },
       "id": 39,
       "options": {
@@ -7672,7 +7274,7 @@
           "unit": "ms"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -7773,7 +7375,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 294
+        "y": 278
       },
       "id": 40,
       "options": {
@@ -7789,7 +7391,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -7889,7 +7491,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 294
+        "y": 278
       },
       "id": 43,
       "options": {
@@ -7905,7 +7507,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -7958,7 +7560,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 302
+        "y": 286
       },
       "id": 41,
       "options": {
@@ -7996,7 +7598,7 @@
           "unit": "ms"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -8038,7 +7640,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 302
+        "y": 286
       },
       "id": 42,
       "options": {
@@ -8076,7 +7678,7 @@
           "unit": "ms"
         }
       },
-      "pluginVersion": "12.4.0",
+      "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
@@ -8093,6 +7695,389 @@
       ],
       "title": "Data column sidecars verification time",
       "type": "heatmap"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 294
+      },
+      "id": 111,
+      "panels": [],
+      "title": "⏯️ Replay",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 0,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 295
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "go_memstats_alloc_bytes{job=\"beacon\"}",
+          "format": "time_series",
+          "instant": false,
+          "legendFormat": "current",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "go_memstats_alloc_bytes{job=\"beacon\"} offset ${offset}",
+          "instant": false,
+          "legendFormat": "ref",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Memory usage heap [inst]",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 0,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "diff"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 295
+      },
+      "id": 96,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "avg_over_time(go_memstats_alloc_bytes{job=\"beacon\"}[2h])",
+          "format": "time_series",
+          "instant": false,
+          "legendFormat": "current",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "avg_over_time(go_memstats_alloc_bytes{job=\"beacon\"}[2h] offset ${offset})",
+          "instant": false,
+          "legendFormat": "ref",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Memory usage heap [2h]",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 0,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "relative"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "unit",
+                "value": "percentunit"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 303
+      },
+      "id": 97,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "avg_over_time(go_memstats_alloc_bytes{job=\"beacon\"}[2h] offset ${offset}) - avg_over_time(go_memstats_alloc_bytes{job=\"beacon\"}[2h])",
+          "instant": false,
+          "legendFormat": "absolute",
+          "range": true,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "(avg_over_time(go_memstats_alloc_bytes{job=\"beacon\"}[2h] offset ${offset}) - avg_over_time(go_memstats_alloc_bytes{job=\"beacon\"}[2h]))/avg_over_time(go_memstats_alloc_bytes{job=\"beacon\"}[2h] offset ${offset})",
+          "instant": false,
+          "legendFormat": "relative",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Memory usage heap diff [2h]",
+      "type": "timeseries"
     }
   ],
   "preload": false,
@@ -8100,16 +8085,35 @@
   "schemaVersion": 42,
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "text": "3500s",
+          "value": "3500s"
+        },
+        "hide": 3,
+        "label": "Offset",
+        "name": "offset",
+        "options": [
+          {
+            "selected": true,
+            "text": "3500s",
+            "value": "3500s"
+          }
+        ],
+        "query": "3500s",
+        "type": "textbox"
+      }
+    ]
   },
   "time": {
-    "from": "now-4h",
-    "to": "now"
+    "from": "2026-04-28T10:13:20.414Z",
+    "to": "2026-04-28T11:13:20.414Z"
   },
   "timepicker": {},
   "timezone": "utc",
   "title": "Beacon node",
   "uid": "adnmforf",
-  "version": 2,
+  "version": 6,
   "weekStart": ""
 }
