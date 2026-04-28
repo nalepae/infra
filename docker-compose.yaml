@@ -7,15 +7,15 @@ services:
     restart: unless-stopped
     volumes:
       - ./data/${NETWORK}/nethermind:/nethermind/nethermind_db
-      - ./data/${NETWORK}/ipc:/var/run/ipc
+      - ./data/${NETWORK}/ipc:/nethermind/keystore
     ports:
       - "30303:30303" # p2p
       - "127.0.0.1:8545:8545" # JSON-RPC
       - "127.0.0.1:8551:8551" # Engine API
     command:
-     - --config=${NETWORK}
-     - --JsonRpc.IpcUnixDomainSocketPath=/var/run/ipc/nethermind.ipc
-     - --JsonRpc.EnabledModules=Eth,Subscribe,Trace,TxPool,Web3,Personal,Proof,Net,Parity,Health,Rpc,Debug,Engine
+      - --config=${NETWORK}
+      - --JsonRpc.EngineHost=0.0.0.0
+      - --JsonRpc.EnginePort=8551
     environment:
       - NETHERMIND_IMAGE=${NETHERMIND_IMAGE}
       - NETWORK=${NETWORK}
@@ -41,7 +41,8 @@ services:
       - --accept-terms-of-use
       - --${NETWORK}
       - --suggested-fee-recipient=0xbB52ca978a8a2598e496dC1Eed76C23F2400541b
-      - --execution-endpoint=/var/run/ipc/nethermind.ipc
+      - --execution-endpoint=http://nethermind:8551
+      - --jwt-secret=/var/run/ipc/jwt-secret
       - --checkpoint-sync-url=${CHECKPOINT_SYNC_URL}
       - --p2p-host-ip=${P2P_HOST_IP}
       - --rpc-host=0.0.0.0
@@ -67,7 +68,7 @@ services:
       - ./data/${NETWORK}/beacon/logs:/var/log/beacon:ro
     command: run /etc/alloy/config.hcl
     environment:
-        - NETWORK=${NETWORK}
+      - NETWORK=${NETWORK}
 
   loki:
     container_name: loki
@@ -99,17 +100,17 @@ services:
       - 127.0.0.1:4040:4040
 
   grafana:
-   container_name: grafana
-   image: grafana/grafana:12.4
-   restart: unless-stopped
-   user: "1000"
-   volumes:
-    - grafana:/var/lib/grafana
-    - ./configuration/grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/default.yml
-    - ./configuration/grafana/datasources.yaml:/etc/grafana/provisioning/datasources/default.yml
-    - ./configuration/grafana/dashboards:/var/lib/grafana/dashboards
-   ports:
-     - 3000:3000
+    container_name: grafana
+    image: grafana/grafana:12.4
+    restart: unless-stopped
+    user: "1000"
+    volumes:
+      - grafana:/var/lib/grafana
+      - ./configuration/grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/default.yml
+      - ./configuration/grafana/datasources.yaml:/etc/grafana/provisioning/datasources/default.yml
+      - ./configuration/grafana/dashboards:/var/lib/grafana/dashboards
+    ports:
+      - 3000:3000
 
 volumes:
   loki:
