@@ -1,4 +1,4 @@
-# infra
+# Ethereum infrastructure
 
 Docker Compose stack to run an Ethereum node (execution + consensus) alongside an observability stack.
 
@@ -49,3 +49,6 @@ All other ports (Nethermind JSON-RPC `8545` and Engine API `8551`; beacon REST `
 | `BEACON_IMAGE` | Docker image (with tag) to use for the `beacon` service, e.g. `gcr.io/prysmaticlabs/prysm/beacon-chain:v6.0.4`. |
 | `CHECKPOINT_SYNC_URL` | URL of a trusted beacon checkpoint-sync provider. Lets the beacon node start from a recent finalized state instead of syncing from genesis. |
 | `P2P_HOST_IP` | Public IP address of the host, advertised by the beacon node to peers (`--p2p-host-ip`). Required so inbound libp2p connections from the rest of the network can reach this node. |
+
+## Links
+- [http://<P2P_HOST_IP>:3000/d/adnmforf/beacon-node](http://<P2P_HOST_IP>:3000/d/adnmforf/beacon-node) - The beacon node Grafana Dashboard
