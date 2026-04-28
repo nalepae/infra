@@ -44,11 +44,28 @@
           "type": "loki",
           "uid": "loki"
         },
-        "enable": true,
+        "enable": false,
         "expr": "{service_name=\"beacon\", level=\"info\"} |= \"Prysm Beacon Chain started\"",
         "hide": false,
         "iconColor": "blue",
         "name": "Beacon node start",
+        "queryType": "range",
+        "target": {
+          "expr": "",
+          "interval": "",
+          "refId": "Anno"
+        }
+      },
+      {
+        "datasource": {
+          "type": "loki",
+          "uid": "loki"
+        },
+        "enable": true,
+        "expr": "{service_name=\"beacon\", level=\"info\"} |= \"Synced new block\" | logfmt | sinceSlotStartTime > 4s",
+        "hide": false,
+        "iconColor": "purple",
+        "name": "Late synced block",
         "queryType": "range",
         "target": {
           "expr": "",
@@ -8088,8 +8105,8 @@
     "list": [
       {
         "current": {
-          "text": "3500s",
-          "value": "3500s"
+          "text": "10s",
+          "value": "10s"
         },
         "hide": 3,
         "label": "Offset",
@@ -8097,23 +8114,23 @@
         "options": [
           {
             "selected": true,
-            "text": "3500s",
-            "value": "3500s"
+            "text": "10s",
+            "value": "10s"
           }
         ],
-        "query": "3500s",
+        "query": "10s",
         "type": "textbox"
       }
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "utc",
   "title": "Beacon node",
   "uid": "adnmforf",
-  "version": 3,
+  "version": 11,
   "weekStart": ""
 }
