@@ -64,7 +64,7 @@
         "enable": true,
         "expr": "{service_name=\"beacon\", level=\"info\"} |= \"Synced new block\" | logfmt | sinceSlotStartTime > 4s",
         "hide": false,
-        "iconColor": "purple",
+        "iconColor": "orange",
         "name": "Late synced block",
         "queryType": "range",
         "target": {
@@ -308,6 +308,188 @@
         }
       ],
       "title": "Lagging slots",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "locale"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Active rate"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percentunit"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 9,
+        "x": 8,
+        "y": 1
+      },
+      "id": 115,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "validator_count",
+          "legendFormat": "{{state}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "sum(validator_count)",
+          "instant": false,
+          "legendFormat": "Total",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "validator_count{state=\"Active\"} / on() group_left sum(validator_count)",
+          "instant": false,
+          "legendFormat": "Active rate",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Validators count",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "sishort"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Active rate"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percentunit"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 17,
+        "y": 1
+      },
+      "id": 116,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "validators_total_balance",
+          "legendFormat": "{{state}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Validators balance (ETH)",
       "transparent": true,
       "type": "stat"
     },
@@ -2420,6 +2602,117 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 74
+      },
+      "id": 63,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "rate(chain_service_processing_milliseconds_sum[1m])/rate(chain_service_processing_milliseconds_count[1m])",
+          "legendFormat": "[1m]",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "rate(chain_service_processing_milliseconds_sum[4h])/rate(chain_service_processing_milliseconds_count[4h])",
+          "instant": false,
+          "legendFormat": "[4h]",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Chain service processing time",
+      "type": "timeseries"
+    },
+    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
@@ -3476,7 +3769,7 @@
         "x": 0,
         "y": 124
       },
-      "id": 63,
+      "id": 59,
       "options": {
         "legend": {
           "calcs": [],
@@ -3498,7 +3791,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "rate(chain_service_processing_milliseconds_sum[1m])/rate(chain_service_processing_milliseconds_count[1m])",
+          "expr": "rate(chain_service_processing_milliseconds_sum[1m])/rate(chain_service_processing_milliseconds_count[1m]) + rate(da_waited_time_milliseconds_sum[1m])/rate(da_waited_time_milliseconds_count[1m]) ",
           "legendFormat": "[1m]",
           "range": true,
           "refId": "A"
@@ -3509,14 +3802,14 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "rate(chain_service_processing_milliseconds_sum[4h])/rate(chain_service_processing_milliseconds_count[4h])",
+          "expr": "rate(chain_service_processing_milliseconds_sum[4h])/rate(chain_service_processing_milliseconds_count[4h]) + rate(da_waited_time_milliseconds_sum[4h])/rate(da_waited_time_milliseconds_count[4h]) ",
           "instant": false,
           "legendFormat": "[4h]",
           "range": true,
           "refId": "B"
         }
       ],
-      "title": "Chain service processing time",
+      "title": "Data availability waiting time + Chain service processing time",
       "type": "timeseries"
     },
     {
@@ -3686,10 +3979,39 @@
                 "value": 80
               }
             ]
-          },
-          "unit": "ms"
+          }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "max"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    10,
+                    10
+                  ],
+                  "fill": "dash"
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 8,
@@ -3697,7 +4019,7 @@
         "x": 0,
         "y": 132
       },
-      "id": 59,
+      "id": 57,
       "options": {
         "legend": {
           "calcs": [],
@@ -3719,7 +4041,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "rate(chain_service_processing_milliseconds_sum[1m])/rate(chain_service_processing_milliseconds_count[1m]) + rate(da_waited_time_milliseconds_sum[1m])/rate(da_waited_time_milliseconds_count[1m]) ",
+          "expr": "rate(commitment_count_max_21_sum[1m])/rate(commitment_count_max_21_count[1m])",
           "legendFormat": "[1m]",
           "range": true,
           "refId": "A"
@@ -3730,14 +4052,26 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "rate(chain_service_processing_milliseconds_sum[4h])/rate(chain_service_processing_milliseconds_count[4h]) + rate(da_waited_time_milliseconds_sum[4h])/rate(da_waited_time_milliseconds_count[4h]) ",
+          "expr": "rate(commitment_count_max_21_sum[4h])/rate(commitment_count_max_21_count[4h])",
           "instant": false,
           "legendFormat": "[4h]",
           "range": true,
           "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "max_blobs_per_block",
+          "instant": false,
+          "legendFormat": "max",
+          "range": true,
+          "refId": "C"
         }
       ],
-      "title": "Data availability waiting time + Chain service processing time",
+      "title": "Blob count",
       "type": "timeseries"
     },
     {
@@ -3858,89 +4192,18 @@
       },
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
           "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 50,
-            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
-            "insertNulls": false,
-            "lineInterpolation": "smooth",
-            "lineWidth": 2,
-            "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
-            },
-            "showPoints": "auto",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
             }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
           }
         },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "max"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "orange",
-                  "mode": "fixed"
-                }
-              },
-              {
-                "id": "custom.fillOpacity",
-                "value": 0
-              },
-              {
-                "id": "custom.lineStyle",
-                "value": {
-                  "dash": [
-                    10,
-                    10
-                  ],
-                  "fill": "dash"
-                }
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 8,
@@ -3948,18 +4211,40 @@
         "x": 0,
         "y": 140
       },
-      "id": 57,
+      "id": 55,
       "options": {
+        "calculate": false,
+        "cellGap": 1,
+        "color": {
+          "exponent": 0.5,
+          "fill": "dark-orange",
+          "mode": "scheme",
+          "reverse": false,
+          "scale": "exponential",
+          "scheme": "RdYlBu",
+          "steps": 64
+        },
+        "exemplars": {
+          "color": "rgba(255,0,255,0.7)"
+        },
+        "filterValues": {
+          "le": 1e-9
+        },
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
+          "show": false
+        },
+        "rowsFrame": {
+          "layout": "auto"
         },
         "tooltip": {
-          "hideZeros": false,
-          "mode": "multi",
-          "sort": "none"
+          "mode": "single",
+          "showColorScale": false,
+          "yHistogram": false
+        },
+        "yAxis": {
+          "axisPlacement": "left",
+          "reverse": false,
+          "unit": "ms"
         }
       },
       "pluginVersion": "12.4.3",
@@ -3970,38 +4255,15 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "rate(commitment_count_max_21_sum[1m])/rate(commitment_count_max_21_count[1m])",
-          "legendFormat": "[1m]",
+          "expr": "sum(rate(beacon_kzg_verification_data_column_batch_milliseconds_bucket[$__rate_interval])) by (le)",
+          "format": "heatmap",
+          "legendFormat": "__auto",
           "range": true,
           "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "rate(commitment_count_max_21_sum[4h])/rate(commitment_count_max_21_count[4h])",
-          "instant": false,
-          "legendFormat": "[4h]",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "max_blobs_per_block",
-          "instant": false,
-          "legendFormat": "max",
-          "range": true,
-          "refId": "C"
         }
       ],
-      "title": "Blob count",
-      "type": "timeseries"
+      "title": "Data column sidecars KZG proof verification duration",
+      "type": "heatmap"
     },
     {
       "datasource": {
@@ -4109,7 +4371,7 @@
         "x": 0,
         "y": 148
       },
-      "id": 55,
+      "id": 48,
       "options": {
         "calculate": false,
         "cellGap": 1,
@@ -4153,14 +4415,14 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "sum(rate(beacon_kzg_verification_data_column_batch_milliseconds_bucket[$__rate_interval])) by (le)",
+          "expr": "sum(rate(cells_and_proofs_from_structured_computation_milliseconds_bucket[$__rate_interval])) by (le)",
           "format": "heatmap",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Data column sidecars KZG proof verification duration",
+      "title": "Cells and proofs from structured computation duration",
       "type": "heatmap"
     },
     {
@@ -4275,92 +4537,12 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "scaleDistribution": {
-              "type": "linear"
-            }
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 156
-      },
-      "id": 48,
-      "options": {
-        "calculate": false,
-        "cellGap": 1,
-        "color": {
-          "exponent": 0.5,
-          "fill": "dark-orange",
-          "mode": "scheme",
-          "reverse": false,
-          "scale": "exponential",
-          "scheme": "RdYlBu",
-          "steps": 64
-        },
-        "exemplars": {
-          "color": "rgba(255,0,255,0.7)"
-        },
-        "filterValues": {
-          "le": 1e-9
-        },
-        "legend": {
-          "show": false
-        },
-        "rowsFrame": {
-          "layout": "auto"
-        },
-        "tooltip": {
-          "mode": "single",
-          "showColorScale": false,
-          "yHistogram": false
-        },
-        "yAxis": {
-          "axisPlacement": "left",
-          "reverse": false,
-          "unit": "ms"
-        }
-      },
-      "pluginVersion": "12.4.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "sum(rate(cells_and_proofs_from_structured_computation_milliseconds_bucket[$__rate_interval])) by (le)",
-          "format": "heatmap",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Cells and proofs from structured computation duration",
-      "type": "heatmap"
-    },
-    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 164
+        "y": 156
       },
       "id": 27,
       "panels": [],
@@ -4433,7 +4615,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 165
+        "y": 157
       },
       "id": 69,
       "options": {
@@ -4544,7 +4726,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 165
+        "y": 157
       },
       "id": 73,
       "options": {
@@ -4655,7 +4837,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 173
+        "y": 165
       },
       "id": 78,
       "options": {
@@ -4753,7 +4935,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 173
+        "y": 165
       },
       "id": 85,
       "options": {
@@ -4851,7 +5033,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 181
+        "y": 173
       },
       "id": 86,
       "options": {
@@ -4949,7 +5131,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 181
+        "y": 173
       },
       "id": 64,
       "options": {
@@ -5047,7 +5229,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 189
+        "y": 181
       },
       "id": 87,
       "options": {
@@ -5174,7 +5356,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 189
+        "y": 181
       },
       "id": 88,
       "options": {
@@ -5296,7 +5478,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 197
+        "y": 189
       },
       "id": 91,
       "options": {
@@ -5419,7 +5601,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 197
+        "y": 189
       },
       "id": 83,
       "options": {
@@ -5530,7 +5712,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 205
+        "y": 197
       },
       "id": 89,
       "options": {
@@ -5628,7 +5810,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 205
+        "y": 197
       },
       "id": 101,
       "options": {
@@ -5744,7 +5926,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 213
+        "y": 205
       },
       "id": 103,
       "options": {
@@ -5903,7 +6085,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 213
+        "y": 205
       },
       "id": 99,
       "options": {
@@ -6026,7 +6208,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 221
+        "y": 213
       },
       "id": 102,
       "options": {
@@ -6156,7 +6338,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 221
+        "y": 213
       },
       "id": 100,
       "options": {
@@ -6280,7 +6462,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 229
+        "y": 221
       },
       "id": 98,
       "options": {
@@ -6322,7 +6504,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 237
+        "y": 229
       },
       "id": 29,
       "panels": [],
@@ -6395,7 +6577,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 238
+        "y": 230
       },
       "id": 30,
       "options": {
@@ -6493,7 +6675,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 238
+        "y": 230
       },
       "id": 31,
       "options": {
@@ -6609,7 +6791,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 246
+        "y": 238
       },
       "id": 32,
       "options": {
@@ -6678,7 +6860,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 246
+        "y": 238
       },
       "id": 33,
       "options": {
@@ -6758,7 +6940,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 254
+        "y": 246
       },
       "id": 34,
       "options": {
@@ -6897,7 +7079,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 254
+        "y": 246
       },
       "id": 35,
       "options": {
@@ -6966,7 +7148,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 262
+        "y": 254
       },
       "id": 36,
       "options": {
@@ -7046,7 +7228,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 262
+        "y": 254
       },
       "id": 37,
       "options": {
@@ -7184,7 +7366,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 270
+        "y": 262
       },
       "id": 38,
       "options": {
@@ -7253,7 +7435,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 270
+        "y": 262
       },
       "id": 39,
       "options": {
@@ -7392,7 +7574,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 278
+        "y": 270
       },
       "id": 40,
       "options": {
@@ -7508,7 +7690,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 278
+        "y": 270
       },
       "id": 43,
       "options": {
@@ -7577,7 +7759,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 286
+        "y": 278
       },
       "id": 41,
       "options": {
@@ -7657,7 +7839,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 286
+        "y": 278
       },
       "id": 42,
       "options": {
@@ -7719,7 +7901,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 294
+        "y": 286
       },
       "id": 111,
       "panels": [],
@@ -7792,7 +7974,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 295
+        "y": 287
       },
       "id": 7,
       "options": {
@@ -7919,7 +8101,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 295
+        "y": 287
       },
       "id": 96,
       "options": {
@@ -8050,7 +8232,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 303
+        "y": 295
       },
       "id": 97,
       "options": {
@@ -8095,6 +8277,117 @@
       ],
       "title": "Memory usage heap diff [2h]",
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 303
+      },
+      "id": 113,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "rate(chain_service_processing_milliseconds_sum[1m])/rate(chain_service_processing_milliseconds_count[1m])",
+          "legendFormat": "current",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "rate(chain_service_processing_milliseconds_sum[1m] offset ${offset}) / rate(chain_service_processing_milliseconds_count[1m] offset ${offset})",
+          "instant": false,
+          "legendFormat": "ref",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Chain service processing time [1m]",
+      "type": "timeseries"
     }
   ],
   "preload": false,
@@ -8105,8 +8398,8 @@
     "list": [
       {
         "current": {
-          "text": "10s",
-          "value": "10s"
+          "text": "63819s",
+          "value": "63819s"
         },
         "hide": 3,
         "label": "Offset",
@@ -8114,11 +8407,11 @@
         "options": [
           {
             "selected": true,
-            "text": "10s",
-            "value": "10s"
+            "text": "63819s",
+            "value": "63819s"
           }
         ],
-        "query": "10s",
+        "query": "63819s",
         "type": "textbox"
       }
     ]
@@ -8131,6 +8424,6 @@
   "timezone": "utc",
   "title": "Beacon node",
   "uid": "adnmforf",
-  "version": 11,
+  "version": 12,
   "weekStart": ""
 }
