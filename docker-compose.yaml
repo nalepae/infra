@@ -99,6 +99,19 @@ services:
     ports:
       - 127.0.0.1:4040:4040
 
+  tempo:
+    container_name: tempo
+    image: grafana/tempo:2.6.1
+    restart: unless-stopped
+    command:
+      - -config.file=/etc/tempo/tempo.yaml
+    volumes:
+      - ./configuration/tempo.yaml:/etc/tempo/tempo.yaml
+      - tempo:/var/tempo
+    ports:
+      - 127.0.0.1:3200:3200 # tempo HTTP API (Grafana queries)
+      - 127.0.0.1:4318:4318 # OTLP/HTTP ingest
+
   grafana:
     container_name: grafana
     image: grafana/grafana:12.4
@@ -116,3 +129,4 @@ volumes:
   loki:
   prometheus:
   grafana:
+  tempo:

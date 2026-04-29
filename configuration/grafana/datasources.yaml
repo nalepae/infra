@@ -52,3 +52,25 @@ datasources:
     jsonData:
       pdcInjected: false
     readOnly: false
+  - id: 4
+    uid: tempo
+    orgId: 1
+    name: Tempo
+    type: tempo
+    typeName: Tempo
+    typeLogoUrl: public/app/plugins/datasource/tempo/img/tempo_logo.svg
+    access: proxy
+    url: http://tempo:3200
+    user: ''
+    database: ''
+    basicAuth: false
+    isDefault: false
+    jsonData:
+      pdcInjected: false
+      tracesToLogsV2:
+        datasourceUid: loki
+        spanStartTimeShift: '-1m'
+        spanEndTimeShift: '1m'
+      tracesToMetrics:
+        datasourceUid: prometheus
+    readOnly: false
