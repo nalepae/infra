@@ -53,6 +53,10 @@ services:
       - --monitoring-host=0.0.0.0
       - --pprof
       - --pprofaddr=0.0.0.0
+      - --enable-tracing
+      - --tracing-endpoint=http://tempo:4318/v1/traces
+      - --tracing-process-name=beacon
+      - --trace-sample-fraction=1.0
     environment:
       - BEACON_IMAGE=${BEACON_IMAGE}
       - NETWORK=${NETWORK}
