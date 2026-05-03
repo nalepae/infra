@@ -80,6 +80,19 @@ services:
     environment:
       - NETWORK=${NETWORK}
 
+  node_exporter:
+    container_name: node_exporter
+    image: prom/node-exporter:latest
+    restart: unless-stopped
+    pid: host
+    command:
+      - --path.rootfs=/host
+      - --path.procfs=/host/proc
+      - --path.sysfs=/host/sys
+      - --collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)
+    volumes:
+      - /:/host:ro,rslave
+
   loki:
     container_name: loki
     image: grafana/loki
