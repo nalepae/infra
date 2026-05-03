@@ -81,7 +81,7 @@ services:
       - NETWORK=${NETWORK}
 
   node_exporter:
-    container_name: node_exporter
+    container_name: node-exporter
     image: prom/node-exporter:latest
     restart: unless-stopped
     pid: host
