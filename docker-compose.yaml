@@ -16,6 +16,12 @@ services:
       - --config=${NETWORK}
       - --JsonRpc.EngineHost=0.0.0.0
       - --JsonRpc.EnginePort=8551
+      - --Metrics.Enabled=true
+      - --Metrics.ExposeHost=0.0.0.0
+      - --Metrics.ExposePort=8088
+      - --Metrics.EnableDbSizeMetrics=true
+      - --Metrics.EnableDetailedMetric=true
+      - --Metrics.CountersEnabled=true
     environment:
       - NETHERMIND_IMAGE=${NETHERMIND_IMAGE}
       - NETWORK=${NETWORK}
