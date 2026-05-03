@@ -50,6 +50,30 @@ loki.process "extract_level" {
   forward_to = [loki.write.default.receiver]
 }
 
+loki.source.file "nethermind_logs" {
+  targets = [
+    {
+      __path__     = "/var/log/nethermind/*.log",
+      service_name = "nethermind",
+    },
+  ]
+  forward_to = [loki.process.nethermind.receiver]
+}
+
+loki.process "nethermind" {
+  stage.regex {
+    expression = "^[^|]*\\|(?P<level>[A-Z]+)\\|"
+  }
+
+  stage.labels {
+    values = {
+      "level" = "",
+    }
+  }
+
+  forward_to = [loki.write.default.receiver]
+}
+
 loki.write "default" {
   endpoint {
     url = "http://loki:3100/loki/api/v1/push"
