@@ -65,7 +65,7 @@
         "expr": "{service_name=\"beacon\", level=\"info\"} |= \"Synced new block\" | logfmt | sinceSlotStartTime > 4s",
         "hide": false,
         "iconColor": "orange",
-        "name": "Late synced block",
+        "name": "Slow chain service processing",
         "queryType": "range",
         "target": {
           "expr": "",
@@ -331,7 +331,7 @@
               }
             ]
           },
-          "unit": "locale"
+          "unit": "sishort"
         },
         "overrides": [
           {
@@ -350,7 +350,7 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 9,
+        "w": 8,
         "x": 8,
         "y": 1
       },
@@ -454,7 +454,7 @@
       "gridPos": {
         "h": 6,
         "w": 4,
-        "x": 17,
+        "x": 16,
         "y": 1
       },
       "id": 116,
@@ -483,7 +483,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "validators_total_balance",
+          "expr": "validators_total_balance/1_000_000_000",
           "legendFormat": "{{state}}",
           "range": true,
           "refId": "A"
@@ -8393,7 +8393,10 @@
   "preload": false,
   "refresh": "auto",
   "schemaVersion": 42,
-  "tags": [],
+  "tags": [
+    "Prysm",
+    "Beacon node"
+  ],
   "templating": {
     "list": [
       {
@@ -8421,9 +8424,9 @@
     "to": "now"
   },
   "timepicker": {},
-  "timezone": "utc",
+  "timezone": "browser",
   "title": "Beacon node",
   "uid": "adnmforf",
-  "version": 12,
+  "version": 18,
   "weekStart": ""
 }
