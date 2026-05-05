@@ -51,7 +51,6 @@ services:
       - --execution-endpoint=http://nethermind:8551
       - --jwt-secret=/var/run/ipc/jwt-secret
       - --checkpoint-sync-url=${CHECKPOINT_SYNC_URL}
-      - --p2p-max-peers=200
       - --p2p-host-ip=${P2P_HOST_IP}
       - --rpc-host=0.0.0.0
       - --grpc-gateway-host=0.0.0.0
