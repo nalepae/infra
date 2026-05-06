@@ -8435,7 +8435,7 @@
                   "index": 2
                 },
                 "disconnected": {
-                  "color": "super-light-gray",
+                  "color": "red",
                   "index": 3
                 }
               },
@@ -8498,55 +8498,6 @@
           "showZoom": true
         },
         "layers": [
-          {
-            "config": {
-              "showLegend": false,
-              "style": {
-                "color": {
-                  "fixed": "yellow"
-                },
-                "opacity": 1,
-                "rotation": {
-                  "fixed": 0,
-                  "max": 360,
-                  "min": -360,
-                  "mode": "mod"
-                },
-                "size": {
-                  "fixed": 12,
-                  "max": 15,
-                  "min": 2
-                },
-                "symbol": {
-                  "fixed": "img/icons/marker/star.svg",
-                  "mode": "fixed"
-                },
-                "symbolAlign": {
-                  "horizontal": "center",
-                  "vertical": "center"
-                },
-                "textConfig": {
-                  "fontSize": 12,
-                  "offsetX": 0,
-                  "offsetY": 0,
-                  "textAlign": "center",
-                  "textBaseline": "middle"
-                }
-              }
-            },
-            "filterData": {
-              "id": "byRefId",
-              "options": "C"
-            },
-            "location": {
-              "latitude": "latitude",
-              "longitude": "longitude",
-              "mode": "coords"
-            },
-            "name": "Self",
-            "tooltip": true,
-            "type": "markers"
-          },
           {
             "config": {
               "showLegend": false,
@@ -8646,6 +8597,55 @@
             "name": "Inbound peer",
             "tooltip": true,
             "type": "markers"
+          },
+          {
+            "config": {
+              "showLegend": false,
+              "style": {
+                "color": {
+                  "fixed": "yellow"
+                },
+                "opacity": 1,
+                "rotation": {
+                  "fixed": 0,
+                  "max": 360,
+                  "min": -360,
+                  "mode": "mod"
+                },
+                "size": {
+                  "fixed": 16,
+                  "max": 20,
+                  "min": 2
+                },
+                "symbol": {
+                  "fixed": "img/icons/marker/star.svg",
+                  "mode": "fixed"
+                },
+                "symbolAlign": {
+                  "horizontal": "center",
+                  "vertical": "center"
+                },
+                "textConfig": {
+                  "fontSize": 12,
+                  "offsetX": 0,
+                  "offsetY": 0,
+                  "textAlign": "center",
+                  "textBaseline": "middle"
+                }
+              }
+            },
+            "filterData": {
+              "id": "byRefId",
+              "options": "C"
+            },
+            "location": {
+              "latitude": "latitude",
+              "longitude": "longitude",
+              "mode": "coords"
+            },
+            "name": "Self",
+            "tooltip": true,
+            "type": "markers"
           }
         ],
         "tooltip": {
@@ -8671,7 +8671,7 @@
           "expr": "beacon_peer_geo{direction=\"inbound\"}",
           "format": "table",
           "instant": true,
-          "legendFormat": "__auto",
+          "legendFormat": "{{peer_id}}",
           "range": false,
           "refId": "A"
         },
@@ -8685,7 +8685,7 @@
           "expr": "beacon_peer_geo{direction=\"outbound\"}",
           "format": "table",
           "instant": true,
-          "legendFormat": "__auto",
+          "legendFormat": "{{peer_id}}",
           "range": false,
           "refId": "B"
         },
@@ -8699,7 +8699,7 @@
           "expr": "beacon_peer_geo{direction=\"self\"}",
           "format": "table",
           "instant": true,
-          "legendFormat": "__auto",
+          "legendFormat": "{{peer_id}}",
           "range": false,
           "refId": "C"
         }
