@@ -8435,7 +8435,7 @@
                   "index": 2
                 },
                 "disconnected": {
-                  "color": "gray",
+                  "color": "super-light-gray",
                   "index": 3
                 }
               },
@@ -8491,7 +8491,7 @@
         },
         "controls": {
           "mouseWheelZoom": true,
-          "showAttribution": true,
+          "showAttribution": false,
           "showDebug": false,
           "showMeasure": false,
           "showScale": false,
@@ -8563,8 +8563,8 @@
                   "mode": "mod"
                 },
                 "size": {
-                  "fixed": 10,
-                  "max": 15,
+                  "fixed": 14,
+                  "max": 20,
                   "min": 2
                 },
                 "symbol": {
