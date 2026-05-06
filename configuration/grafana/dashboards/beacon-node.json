@@ -8419,7 +8419,29 @@
               "viz": false
             }
           },
-          "mappings": [],
+          "mappings": [
+            {
+              "options": {
+                "connected": {
+                  "color": "green",
+                  "index": 0
+                },
+                "connecting": {
+                  "color": "yellow",
+                  "index": 1
+                },
+                "disconnecting": {
+                  "color": "orange",
+                  "index": 2
+                },
+                "disconnected": {
+                  "color": "gray",
+                  "index": 3
+                }
+              },
+              "type": "value"
+            }
+          ],
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -8430,7 +8452,29 @@
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": ["peer_id", "direction", "country", "city"],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": true,
+                  "viz": false
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 16,
@@ -8456,13 +8500,12 @@
         "layers": [
           {
             "config": {
-              "showLegend": true,
+              "showLegend": false,
               "style": {
                 "color": {
-                  "field": "direction",
-                  "fixed": "dark-green"
+                  "fixed": "yellow"
                 },
-                "opacity": 0.6,
+                "opacity": 1,
                 "rotation": {
                   "fixed": 0,
                   "max": 360,
@@ -8470,7 +8513,107 @@
                   "mode": "mod"
                 },
                 "size": {
-                  "fixed": 6,
+                  "fixed": 12,
+                  "max": 15,
+                  "min": 2
+                },
+                "symbol": {
+                  "fixed": "img/icons/marker/star.svg",
+                  "mode": "fixed"
+                },
+                "symbolAlign": {
+                  "horizontal": "center",
+                  "vertical": "center"
+                },
+                "textConfig": {
+                  "fontSize": 12,
+                  "offsetX": 0,
+                  "offsetY": 0,
+                  "textAlign": "center",
+                  "textBaseline": "middle"
+                }
+              }
+            },
+            "filterData": {
+              "id": "byRefId",
+              "options": "C"
+            },
+            "location": {
+              "latitude": "latitude",
+              "longitude": "longitude",
+              "mode": "coords"
+            },
+            "name": "Self",
+            "tooltip": true,
+            "type": "markers"
+          },
+          {
+            "config": {
+              "showLegend": false,
+              "style": {
+                "color": {
+                  "field": "state",
+                  "fixed": "blue"
+                },
+                "opacity": 1,
+                "rotation": {
+                  "fixed": 0,
+                  "max": 360,
+                  "min": -360,
+                  "mode": "mod"
+                },
+                "size": {
+                  "fixed": 10,
+                  "max": 15,
+                  "min": 2
+                },
+                "symbol": {
+                  "fixed": "img/icons/marker/square.svg",
+                  "mode": "fixed"
+                },
+                "symbolAlign": {
+                  "horizontal": "center",
+                  "vertical": "center"
+                },
+                "textConfig": {
+                  "fontSize": 12,
+                  "offsetX": 0,
+                  "offsetY": 0,
+                  "textAlign": "center",
+                  "textBaseline": "middle"
+                }
+              }
+            },
+            "filterData": {
+              "id": "byRefId",
+              "options": "B"
+            },
+            "location": {
+              "latitude": "latitude",
+              "longitude": "longitude",
+              "mode": "coords"
+            },
+            "name": "Outbound peer",
+            "tooltip": true,
+            "type": "markers"
+          },
+          {
+            "config": {
+              "showLegend": false,
+              "style": {
+                "color": {
+                  "field": "state",
+                  "fixed": "green"
+                },
+                "opacity": 1,
+                "rotation": {
+                  "fixed": 0,
+                  "max": 360,
+                  "min": -360,
+                  "mode": "mod"
+                },
+                "size": {
+                  "fixed": 10,
                   "max": 15,
                   "min": 2
                 },
@@ -8491,12 +8634,16 @@
                 }
               }
             },
+            "filterData": {
+              "id": "byRefId",
+              "options": "A"
+            },
             "location": {
               "latitude": "latitude",
               "longitude": "longitude",
               "mode": "coords"
             },
-            "name": "Peers",
+            "name": "Inbound peer",
             "tooltip": true,
             "type": "markers"
           }
@@ -8521,15 +8668,43 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "beacon_peer_geo",
+          "expr": "beacon_peer_geo{direction=\"inbound\"}",
           "format": "table",
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "beacon_peer_geo{direction=\"outbound\"}",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "beacon_peer_geo{direction=\"self\"}",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "C"
         }
       ],
-      "title": "Connected peers — world map",
+      "title": "Peers — world map",
       "type": "geomap"
     },
     {

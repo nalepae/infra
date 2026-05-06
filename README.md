@@ -23,7 +23,7 @@ Metrics database. Scrapes metrics endpoints (Nethermind, beacon monitoring, etc.
 Continuous profiling backend. Receives pprof profiles (the beacon node exposes pprof on `:6060`).
 
 ### `peer-geo-exporter`
-Small Go service that polls the beacon REST API (`/eth/v1/node/peers?state=connected`), resolves each peer's IP to a geographic location using a local DB-IP Lite City database, and exposes the result as the `beacon_peer_geo` Prometheus gauge. Powers the world-map panel on the beacon dashboard.
+Small Go service to a geographic location using a local DB-IP Lite City database, and exposes the `beacon_peer_geo` Prometheus gauge that feeds the world-map panel on the beacon dashboard.
 
 ### `grafana`
 Dashboards and UI for the data stored in Loki, Prometheus, and Pyroscope. Datasources and dashboards are provisioned from `configuration/grafana/`.
@@ -53,9 +53,13 @@ All other ports (Nethermind JSON-RPC `8545` and Engine API `8551`; beacon REST `
 | `CHECKPOINT_SYNC_URL` | URL of a trusted beacon checkpoint-sync provider. Lets the beacon node start from a recent finalized state instead of syncing from genesis. |
 | `P2P_HOST_IP` | Public IP address of the host, advertised by the beacon node to peers (`--p2p-host-ip`). Required so inbound libp2p connections from the rest of the network can reach this node. |
 
-## GeoIP database (peer world map)
+## Peer world map
 
-`peer-geo-exporter` downloads the [DB-IP Lite City](https://db-ip.com/db/download/ip-to-city-lite) `.mmdb` automatically on startup, and refreshes it monthly. The cached database lives in the `peer-geo` named docker volume — no manual setup is required. DB-IP Lite is free and CC-BY 4.0 (no signup or API key).
+Brought up by the `peer-geo-exporter` service (see above). The DB-IP Lite City `.mmdb` is auto-downloaded on first start (and refreshed monthly) into the `peer-geo` named docker volume — no manual setup required. The image must exist locally before `docker compose up`:
+
+```sh
+docker build -t peer-geo-exporter:latest ../peer-geo-exporter
+```
 
 ## Links
 - [http://<P2P_HOST_IP>:3000/d/adnmforf/beacon-node](http://<P2P_HOST_IP>:3000/d/adnmforf/beacon-node) - The beacon node Grafana Dashboard
