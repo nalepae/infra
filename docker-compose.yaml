@@ -70,6 +70,18 @@ services:
       - CHECKPOINT_SYNC_URL=${CHECKPOINT_SYNC_URL}
       - P2P_HOST_IP=${P2P_HOST_IP}
 
+  peer-geo-exporter:
+    container_name: peer-geo-exporter
+    build: ./peer-geo-exporter
+    restart: unless-stopped
+    volumes:
+      - peer-geo:/data
+    command:
+      - --beacon-url=http://beacon:3500
+      - --mmdb-path=/data/dbip-city-lite.mmdb
+      - --listen-addr=:9101
+      - --poll-interval=60s
+
   alloy:
     container_name: alloy
     image: grafana/alloy
@@ -157,3 +169,4 @@ volumes:
   prometheus:
   grafana:
   tempo:
+  peer-geo:
