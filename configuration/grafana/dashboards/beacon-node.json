@@ -8618,7 +8618,7 @@
                   "min": 2
                 },
                 "symbol": {
-                  "fixed": "img/icons/marker/star.svg",
+                  "fixed": "img/icons/marker/triangle.svg",
                   "mode": "fixed"
                 },
                 "symbolAlign": {
@@ -8705,6 +8705,19 @@
         }
       ],
       "title": "Peers — world map",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true
+            },
+            "indexByName": {},
+            "renameByName": {}
+          }
+        }
+      ],
       "type": "geomap"
     },
     {
