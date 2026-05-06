@@ -72,7 +72,7 @@ services:
 
   peer-geo-exporter:
     container_name: peer-geo-exporter
-    image: peer-geo-exporter:latest
+    image: nalepae/peer-geo-exporter:latest
     restart: unless-stopped
     volumes:
       - peer-geo:/data
