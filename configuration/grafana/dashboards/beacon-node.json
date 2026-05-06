@@ -8713,7 +8713,15 @@
               "Time": true,
               "__name__": true
             },
-            "indexByName": {},
+            "indexByName": {
+              "peer_id": 0,
+              "direction": 1,
+              "state": 2,
+              "country": 3,
+              "city": 4,
+              "latitude": 5,
+              "longitude": 6
+            },
             "renameByName": {}
           }
         }
