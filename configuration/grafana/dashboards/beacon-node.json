@@ -8458,7 +8458,7 @@
               "id": "byNames",
               "options": {
                 "mode": "exclude",
-                "names": ["peer_id", "direction", "country", "city"],
+                "names": ["peer_id", "direction", "state", "country", "city"],
                 "prefix": "All except:",
                 "readOnly": true
               }
@@ -8563,8 +8563,8 @@
                   "mode": "mod"
                 },
                 "size": {
-                  "fixed": 14,
-                  "max": 20,
+                  "fixed": 11,
+                  "max": 15,
                   "min": 2
                 },
                 "symbol": {
@@ -8613,7 +8613,7 @@
                   "mode": "mod"
                 },
                 "size": {
-                  "fixed": 10,
+                  "fixed": 8,
                   "max": 15,
                   "min": 2
                 },
