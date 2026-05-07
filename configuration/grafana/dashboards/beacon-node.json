@@ -2170,7 +2170,7 @@
                   "index": 1
                 },
                 "disconnected": {
-                  "color": "red",
+                  "color": "transparent",
                   "index": 3
                 },
                 "disconnecting": {
@@ -9212,6 +9212,6 @@
   "timezone": "browser",
   "title": "Beacon node",
   "uid": "adnmforf",
-  "version": 17,
+  "version": 18,
   "weekStart": ""
 }
