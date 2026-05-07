@@ -1,0 +1,699 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Live and historical fork choice tree from /eth/v1/debug/fork_choice. Drag the time range to scrub through the last 24h.",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "links": [],
+  "panels": [
+    {
+      "type": "text",
+      "id": 100,
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "options": {
+        "mode": "markdown",
+        "content": "**Fork choice tree** \u2014 sourced from `/eth/v1/debug/fork_choice` on the beacon node, snapshotted every slot (~12s) by `fork-choice-recorder` (24h retention). X axis is slot (linear; missed slots show as gaps). Squares are blocks: \ud83d\udfe2 finalized, \ud83d\udfe0 justified-chain, \ud83d\udd34 invalid, \ud83d\udd35 other. The **head** has a gold ring; **optimistic** blocks (EL not yet validated) get an amber border. Arrows point from each child to its parent. Drag the time range to scrub through past snapshots."
+      },
+      "transparent": false
+    },
+    {
+      "type": "stat",
+      "id": 1,
+      "title": "Head slot",
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 2
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "forkchoice"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "forkchoice"
+          },
+          "type": "json",
+          "source": "url",
+          "format": "table",
+          "url": "/layout?ts=${__to}",
+          "url_options": {
+            "method": "GET",
+            "data": ""
+          },
+          "parser": "backend",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "head_slot",
+              "text": "head_slot",
+              "type": "number"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "justifyMode": "auto"
+      }
+    },
+    {
+      "type": "stat",
+      "id": 2,
+      "title": "Justified epoch",
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 2
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "forkchoice"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "forkchoice"
+          },
+          "type": "json",
+          "source": "url",
+          "format": "table",
+          "url": "/layout?ts=${__to}",
+          "url_options": {
+            "method": "GET",
+            "data": ""
+          },
+          "parser": "backend",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "justified_epoch",
+              "text": "epoch",
+              "type": "number"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "orange",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "justifyMode": "auto"
+      }
+    },
+    {
+      "type": "stat",
+      "id": 3,
+      "title": "Finalized epoch",
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 2
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "forkchoice"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "forkchoice"
+          },
+          "type": "json",
+          "source": "url",
+          "format": "table",
+          "url": "/layout?ts=${__to}",
+          "url_options": {
+            "method": "GET",
+            "data": ""
+          },
+          "parser": "backend",
+          "root_selector": "",
+          "columns": [
+            {
+              "selector": "finalized_epoch",
+              "text": "epoch",
+              "type": "number"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "justifyMode": "auto"
+      }
+    },
+    {
+      "type": "stat",
+      "id": 4,
+      "title": "Node count",
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 12,
+        "y": 2
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "forkchoice"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "forkchoice"
+          },
+          "type": "json",
+          "source": "url",
+          "format": "table",
+          "url": "/layout?ts=${__to}",
+          "url_options": {
+            "method": "GET",
+            "data": ""
+          },
+          "parser": "backend",
+          "root_selector": "nodes",
+          "columns": [
+            {
+              "selector": "block_root",
+              "text": "block_root",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 64
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto",
+        "justifyMode": "auto"
+      }
+    },
+    {
+      "type": "ae3e-plotly-panel",
+      "id": 5,
+      "title": "Fork choice tree",
+      "gridPos": {
+        "h": 18,
+        "w": 24,
+        "x": 0,
+        "y": 6
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "forkchoice"
+      },
+      "targets": [
+        {
+          "refId": "nodes",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "forkchoice"
+          },
+          "type": "json",
+          "source": "url",
+          "format": "table",
+          "url": "/layout?ts=${__to}",
+          "url_options": {
+            "method": "GET",
+            "data": ""
+          },
+          "parser": "backend",
+          "root_selector": "nodes",
+          "columns": [
+            {
+              "selector": "slot",
+              "text": "slot",
+              "type": "number"
+            },
+            {
+              "selector": "y",
+              "text": "y",
+              "type": "number"
+            },
+            {
+              "selector": "block_root",
+              "text": "block_root",
+              "type": "string"
+            },
+            {
+              "selector": "parent_root",
+              "text": "parent_root",
+              "type": "string"
+            },
+            {
+              "selector": "weight",
+              "text": "weight",
+              "type": "string"
+            },
+            {
+              "selector": "validity",
+              "text": "validity",
+              "type": "string"
+            },
+            {
+              "selector": "kind",
+              "text": "kind",
+              "type": "string"
+            },
+            {
+              "selector": "is_head",
+              "text": "is_head",
+              "type": "boolean"
+            },
+            {
+              "selector": "is_optimistic",
+              "text": "is_optimistic",
+              "type": "boolean"
+            }
+          ]
+        },
+        {
+          "refId": "edges",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "forkchoice"
+          },
+          "type": "json",
+          "source": "url",
+          "format": "table",
+          "url": "/layout?ts=${__to}",
+          "url_options": {
+            "method": "GET",
+            "data": ""
+          },
+          "parser": "backend",
+          "root_selector": "edges",
+          "columns": [
+            {
+              "selector": "from_slot",
+              "text": "from_slot",
+              "type": "number"
+            },
+            {
+              "selector": "from_y",
+              "text": "from_y",
+              "type": "number"
+            },
+            {
+              "selector": "to_slot",
+              "text": "to_slot",
+              "type": "number"
+            },
+            {
+              "selector": "to_y",
+              "text": "to_y",
+              "type": "number"
+            }
+          ]
+        }
+      ],
+      "options": {
+        "configuration": {
+          "displayModeBar": false
+        },
+        "data": [],
+        "layout": {},
+        "onclick": "",
+        "script": "const f = (frame, name) => {\n  const fl = frame.fields.find(x => x.name === name);\n  return fl ? (fl.values.toArray ? fl.values.toArray() : fl.values) : [];\n};\nconst byRef = (id) => data.series.find(s => s.refId === id) || data.series.find(s => s.name === id);\nconst nodes = byRef('nodes') || data.series[0];\nconst edges = byRef('edges') || data.series[1];\n\nconst styles = {\n  finalized: { color: '#2ECC71', size: 28, label: 'finalized' },\n  justified: { color: '#F39C12', size: 24, label: 'justified' },\n  invalid:   { color: '#E74C3C', size: 20, label: 'invalid' },\n  normal:    { color: '#3498DB', size: 20, label: 'block' },\n};\nconst HEAD_RING = '#FFD700';\nconst HEAD_RING_EXTRA = 12;\nconst OPT_BORDER = '#FBBF24';\nconst NORM_BORDER = '#1a1a1a';\n\nconst traces = {\n  finalized: { x: [], y: [], text: [], lineColors: [], lineWidths: [] },\n  justified: { x: [], y: [], text: [], lineColors: [], lineWidths: [] },\n  invalid:   { x: [], y: [], text: [], lineColors: [], lineWidths: [] },\n  normal:    { x: [], y: [], text: [], lineColors: [], lineWidths: [] },\n};\nconst headRing = { x: [], y: [], size: [], text: [] };\n\nconst truthy = (v) => v === true || v === 'true' || v === 1 || v === '1';\n\nif (nodes) {\n  const slot = f(nodes, 'slot');\n  const y    = f(nodes, 'y');\n  const root = f(nodes, 'block_root');\n  const wgt  = f(nodes, 'weight');\n  const val  = f(nodes, 'validity');\n  const kind = f(nodes, 'kind');\n  const head = f(nodes, 'is_head');\n  const opt  = f(nodes, 'is_optimistic');\n  for (let i = 0; i < slot.length; i++) {\n    const k = traces[kind[i]] ? kind[i] : 'normal';\n    const isOpt  = truthy(opt[i]);\n    const isHead = truthy(head[i]);\n    traces[k].x.push(slot[i]);\n    traces[k].y.push(y[i]);\n    traces[k].lineColors.push(isOpt ? OPT_BORDER : NORM_BORDER);\n    traces[k].lineWidths.push(isOpt ? 2.5 : 1);\n    traces[k].text.push(\n      '<b>slot ' + slot[i] + '</b>'\n      + (isHead ? ' <b style=\"color:' + HEAD_RING + '\">[HEAD]</b>' : '')\n      + '<br>' + (root[i] || '')\n      + '<br>weight: ' + (wgt[i] || '')\n      + '<br>validity: ' + (val[i] || '')\n      + '<br>kind: ' + k\n      + '<br>optimistic: ' + isOpt\n    );\n    if (isHead) {\n      headRing.x.push(slot[i]);\n      headRing.y.push(y[i]);\n      headRing.size.push(styles[k].size + HEAD_RING_EXTRA);\n      headRing.text.push('head');\n    }\n  }\n}\n\nconst annotations = [];\nif (edges) {\n  const fs = f(edges, 'from_slot');\n  const fy = f(edges, 'from_y');\n  const ts = f(edges, 'to_slot');\n  const ty = f(edges, 'to_y');\n  for (let i = 0; i < fs.length; i++) {\n    annotations.push({\n      x: ts[i], y: ty[i],\n      ax: fs[i], ay: fy[i],\n      xref: 'x', yref: 'y', axref: 'x', ayref: 'y',\n      showarrow: true,\n      arrowhead: 3, arrowsize: 1.2, arrowwidth: 1.4,\n      arrowcolor: 'rgba(200,200,200,0.55)',\n      standoff: 14, startstandoff: 14,\n    });\n  }\n}\n\nconst series = [];\nif (headRing.x.length) {\n  series.push({\n    type: 'scatter', mode: 'markers',\n    name: 'head', showlegend: true,\n    x: headRing.x, y: headRing.y, text: headRing.text,\n    hoverinfo: 'skip',\n    marker: { symbol: 'square', color: 'rgba(0,0,0,0)', size: headRing.size, line: { color: HEAD_RING, width: 3 } },\n  });\n}\nfor (const k of Object.keys(styles)) {\n  if (!traces[k].x.length) continue;\n  series.push({\n    type: 'scatter', mode: 'markers',\n    name: styles[k].label,\n    x: traces[k].x, y: traces[k].y, text: traces[k].text,\n    hoverinfo: 'text',\n    marker: {\n      symbol: 'square',\n      color: styles[k].color,\n      size: styles[k].size,\n      line: { color: traces[k].lineColors, width: traces[k].lineWidths },\n    },\n  });\n}\n\nreturn {\n  data: series,\n  layout: {\n    xaxis: { title: 'Slot', type: 'linear', dtick: 1, gridcolor: 'rgba(255,255,255,0.08)', zeroline: false },\n    yaxis: { showticklabels: false, zeroline: false, gridcolor: 'rgba(255,255,255,0.05)' },\n    annotations,\n    showlegend: true,\n    legend: { orientation: 'h', y: -0.12 },\n    margin: { l: 30, r: 20, t: 10, b: 50 },\n    plot_bgcolor: 'rgba(0,0,0,0)',\n    paper_bgcolor: 'rgba(0,0,0,0)',\n    font: { color: '#ddd' },\n    hovermode: 'closest',\n  },\n  config: { displayModeBar: false }\n};\n"
+      }
+    },
+    {
+      "type": "table",
+      "id": 6,
+      "title": "Fork choice nodes",
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "forkchoice"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "forkchoice"
+          },
+          "type": "json",
+          "source": "url",
+          "format": "table",
+          "url": "/layout?ts=${__to}",
+          "url_options": {
+            "method": "GET",
+            "data": ""
+          },
+          "parser": "backend",
+          "root_selector": "nodes",
+          "columns": [
+            {
+              "selector": "slot",
+              "text": "slot",
+              "type": "number"
+            },
+            {
+              "selector": "kind",
+              "text": "kind",
+              "type": "string"
+            },
+            {
+              "selector": "is_head",
+              "text": "head",
+              "type": "boolean"
+            },
+            {
+              "selector": "is_optimistic",
+              "text": "optimistic",
+              "type": "boolean"
+            },
+            {
+              "selector": "block_root",
+              "text": "block_root",
+              "type": "string"
+            },
+            {
+              "selector": "parent_root",
+              "text": "parent_root",
+              "type": "string"
+            },
+            {
+              "selector": "weight",
+              "text": "weight",
+              "type": "string"
+            },
+            {
+              "selector": "validity",
+              "text": "validity",
+              "type": "string"
+            }
+          ]
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "kind"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "finalized": {
+                        "color": "green",
+                        "index": 0
+                      }
+                    }
+                  },
+                  {
+                    "type": "value",
+                    "options": {
+                      "justified": {
+                        "color": "orange",
+                        "index": 1
+                      }
+                    }
+                  },
+                  {
+                    "type": "value",
+                    "options": {
+                      "invalid": {
+                        "color": "red",
+                        "index": 2
+                      }
+                    }
+                  },
+                  {
+                    "type": "value",
+                    "options": {
+                      "normal": {
+                        "color": "blue",
+                        "index": 3
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "validity"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "type": "value",
+                    "options": {
+                      "valid": {
+                        "color": "green",
+                        "index": 0
+                      }
+                    }
+                  },
+                  {
+                    "type": "value",
+                    "options": {
+                      "invalid": {
+                        "color": "red",
+                        "index": 1
+                      }
+                    }
+                  },
+                  {
+                    "type": "value",
+                    "options": {
+                      "optimistic": {
+                        "color": "yellow",
+                        "index": 2
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "showHeader": true,
+        "cellHeight": "sm",
+        "footer": {
+          "show": false,
+          "reducer": [
+            "sum"
+          ],
+          "fields": ""
+        },
+        "sortBy": [
+          {
+            "displayName": "slot",
+            "desc": true
+          }
+        ]
+      }
+    }
+  ],
+  "preload": false,
+  "refresh": "12s",
+  "schemaVersion": 39,
+  "tags": [
+    "beacon",
+    "fork-choice"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Fork Choice",
+  "uid": "fork-choice",
+  "version": 2,
+  "weekStart": ""
+}

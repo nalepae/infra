@@ -82,6 +82,19 @@ services:
       - --listen-addr=:9101
       - --poll-interval=60s
 
+  fork-choice-recorder:
+    container_name: fork-choice-recorder
+    image: nalepae/fork-choice-recorder:v0.1.0
+    restart: unless-stopped
+    volumes:
+      - fork-choice:/data
+    command:
+      - --beacon-url=http://beacon:3500
+      - --listen-addr=:9102
+      - --data-dir=/data
+      - --retention=24h
+      - --poll-interval=12s
+
   alloy:
     container_name: alloy
     image: grafana/alloy
@@ -156,6 +169,8 @@ services:
     image: grafana/grafana:12.4
     restart: unless-stopped
     user: "1000"
+    environment:
+      - GF_INSTALL_PLUGINS=yesoreyeram-infinity-datasource,ae3e-plotly-panel
     volumes:
       - grafana:/var/lib/grafana
       - ./configuration/grafana/dashboard.yaml:/etc/grafana/provisioning/dashboards/default.yml
@@ -170,3 +185,4 @@ volumes:
   grafana:
   tempo:
   peer-geo:
+  fork-choice:
