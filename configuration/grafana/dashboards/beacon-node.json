@@ -44,7 +44,7 @@
           "type": "loki",
           "uid": "loki"
         },
-        "enable": true,
+        "enable": false,
         "expr": "{service_name=\"beacon\", level=\"info\"} |= \"Prysm Beacon Chain started\"",
         "hide": false,
         "iconColor": "blue",
@@ -66,6 +66,23 @@
         "hide": false,
         "iconColor": "orange",
         "name": "Slow chain service processing",
+        "queryType": "range",
+        "target": {
+          "expr": "",
+          "interval": "",
+          "refId": "Anno"
+        }
+      },
+      {
+        "datasource": {
+          "type": "loki",
+          "uid": "loki"
+        },
+        "enable": false,
+        "expr": "{service_name=\"beacon\", level=\"error\"} |= \"Could not update committee cache\"",
+        "hide": false,
+        "iconColor": "red",
+        "name": "Committee cache error",
         "queryType": "range",
         "target": {
           "expr": "",
@@ -1439,7 +1456,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "min. target"
+              "options": "total"
             },
             "properties": [
               {
@@ -1447,6 +1464,27 @@
                 "value": {
                   "fixedColor": "yellow",
                   "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.stacking",
+                "value": {
+                  "group": "A",
+                  "mode": "none"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    10,
+                    10
+                  ],
+                  "fill": "dash"
                 }
               }
             ]
@@ -1480,7 +1518,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "editorMode": "builder",
+          "editorMode": "code",
           "expr": "connected_libp2p_peers",
           "legendFormat": "{{agent}}",
           "range": true,
@@ -1497,6 +1535,18 @@
           "legendFormat": "min. target",
           "range": true,
           "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "builder",
+          "expr": "sum(connected_libp2p_peers)",
+          "instant": false,
+          "legendFormat": "total",
+          "range": true,
+          "refId": "C"
         }
       ],
       "title": "Peers per agent",
@@ -9328,13 +9378,13 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-12h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Beacon node",
   "uid": "adnmforf",
-  "version": 39,
+  "version": 41,
   "weekStart": ""
 }
