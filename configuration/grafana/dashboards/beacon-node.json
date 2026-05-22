@@ -1112,7 +1112,7 @@
               "mode": "none"
             },
             "thresholdsStyle": {
-              "mode": "area"
+              "mode": "off"
             }
           },
           "mappings": [],
@@ -1122,16 +1122,61 @@
               {
                 "color": "green",
                 "value": 0
-              },
-              {
-                "color": "red",
-                "value": 5000
               }
             ]
           },
           "unit": "sishort"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "limit"
+            },
+            "properties": [
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    10,
+                    10
+                  ],
+                  "fill": "dash"
+                }
+              }
+            ]
+          },
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "average",
+                  "instant",
+                  "limit"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": true,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 8,
@@ -1162,7 +1207,7 @@
           },
           "editorMode": "code",
           "expr": "go_goroutines{job=\"beacon\"}",
-          "legendFormat": "[inst]",
+          "legendFormat": "go",
           "range": true,
           "refId": "A"
         },
@@ -1172,21 +1217,9 @@
             "uid": "prometheus"
           },
           "editorMode": "builder",
-          "expr": "max_over_time(go_goroutines{job=\"beacon\"}[1h])",
+          "expr": "beacon_goroutine_count",
           "instant": false,
-          "legendFormat": "[max 1h]",
-          "range": true,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "max_goroutines",
-          "instant": false,
-          "legendFormat": "max allowed",
+          "legendFormat": "{{kind}}",
           "range": true,
           "refId": "C"
         }
@@ -9385,6 +9418,6 @@
   "timezone": "browser",
   "title": "Beacon node",
   "uid": "adnmforf",
-  "version": 41,
+  "version": 24,
   "weekStart": ""
 }
