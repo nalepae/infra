@@ -7002,12 +7002,111 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "dtdurationms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 242
+      },
+      "id": 213,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "increase(save_state_to_cold_milliseconds_sum[1h])/(increase(save_state_to_cold_milliseconds_count[1h]))",
+          "legendFormat": "hit",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Save state duration",
+      "type": "timeseries"
+    },
+    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 242
+        "y": 250
       },
       "id": 203,
       "panels": [],
@@ -7042,7 +7141,7 @@
         "h": 4,
         "w": 4,
         "x": 0,
-        "y": 243
+        "y": 251
       },
       "id": 207,
       "options": {
@@ -7120,7 +7219,7 @@
         "h": 4,
         "w": 4,
         "x": 4,
-        "y": 243
+        "y": 251
       },
       "id": 206,
       "options": {
@@ -7198,7 +7297,7 @@
         "h": 4,
         "w": 4,
         "x": 8,
-        "y": 243
+        "y": 251
       },
       "id": 205,
       "options": {
@@ -7261,7 +7360,7 @@
         "h": 18,
         "w": 24,
         "x": 0,
-        "y": 247
+        "y": 255
       },
       "id": 209,
       "options": {
@@ -7485,7 +7584,7 @@
         "h": 12,
         "w": 24,
         "x": 0,
-        "y": 265
+        "y": 273
       },
       "id": 210,
       "options": {
@@ -7569,7 +7668,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 277
+        "y": 285
       },
       "id": 111,
       "panels": [],
@@ -7642,7 +7741,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 278
+        "y": 286
       },
       "id": 7,
       "options": {
@@ -7769,7 +7868,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 278
+        "y": 286
       },
       "id": 96,
       "options": {
@@ -7900,7 +7999,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 286
+        "y": 294
       },
       "id": 97,
       "options": {
@@ -8012,7 +8111,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 286
+        "y": 294
       },
       "id": 113,
       "options": {
@@ -8063,7 +8162,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 294
+        "y": 302
       },
       "id": 29,
       "panels": [],
@@ -8136,7 +8235,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 295
+        "y": 303
       },
       "id": 30,
       "options": {
@@ -8234,7 +8333,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 295
+        "y": 303
       },
       "id": 31,
       "options": {
@@ -8350,7 +8449,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 303
+        "y": 311
       },
       "id": 32,
       "options": {
@@ -8394,166 +8493,6 @@
       ],
       "title": "Batches imports",
       "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "scaleDistribution": {
-              "type": "linear"
-            }
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 303
-      },
-      "id": 33,
-      "options": {
-        "calculate": false,
-        "cellGap": 1,
-        "color": {
-          "exponent": 0.5,
-          "fill": "dark-orange",
-          "mode": "scheme",
-          "reverse": false,
-          "scale": "exponential",
-          "scheme": "RdYlBu",
-          "steps": 64
-        },
-        "exemplars": {
-          "color": "rgba(255,0,255,0.7)"
-        },
-        "filterValues": {
-          "le": 1e-9
-        },
-        "legend": {
-          "show": false
-        },
-        "rowsFrame": {
-          "layout": "auto"
-        },
-        "tooltip": {
-          "mode": "single",
-          "showColorScale": false,
-          "yHistogram": false
-        },
-        "yAxis": {
-          "axisPlacement": "left",
-          "reverse": false,
-          "unit": "ms"
-        }
-      },
-      "pluginVersion": "12.4.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "sum(rate(backfill_batch_time_waiting_bucket[$__rate_interval])) by (le)",
-          "format": "heatmap",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Time batch waited for a suitable peer",
-      "type": "heatmap"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "scaleDistribution": {
-              "type": "linear"
-            }
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 311
-      },
-      "id": 34,
-      "options": {
-        "calculate": false,
-        "cellGap": 1,
-        "color": {
-          "exponent": 0.5,
-          "fill": "dark-orange",
-          "mode": "scheme",
-          "reverse": false,
-          "scale": "exponential",
-          "scheme": "RdYlBu",
-          "steps": 64
-        },
-        "exemplars": {
-          "color": "rgba(255,0,255,0.7)"
-        },
-        "filterValues": {
-          "le": 1e-9
-        },
-        "legend": {
-          "show": false
-        },
-        "rowsFrame": {
-          "layout": "auto"
-        },
-        "tooltip": {
-          "mode": "single",
-          "showColorScale": false,
-          "yHistogram": false
-        },
-        "yAxis": {
-          "axisPlacement": "left",
-          "reverse": false,
-          "unit": "ms"
-        }
-      },
-      "pluginVersion": "12.4.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "sum(rate(backfill_batch_time_roundtrip_bucket[$__rate_interval])) by (le)",
-          "format": "heatmap",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Total time to import batch, from first scheduled to imported",
-      "type": "heatmap"
     },
     {
       "datasource": {
@@ -8690,166 +8629,6 @@
       },
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "scaleDistribution": {
-              "type": "linear"
-            }
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 319
-      },
-      "id": 36,
-      "options": {
-        "calculate": false,
-        "cellGap": 1,
-        "color": {
-          "exponent": 0.5,
-          "fill": "dark-orange",
-          "mode": "scheme",
-          "reverse": false,
-          "scale": "exponential",
-          "scheme": "RdYlBu",
-          "steps": 64
-        },
-        "exemplars": {
-          "color": "rgba(255,0,255,0.7)"
-        },
-        "filterValues": {
-          "le": 1e-9
-        },
-        "legend": {
-          "show": false
-        },
-        "rowsFrame": {
-          "layout": "auto"
-        },
-        "tooltip": {
-          "mode": "single",
-          "showColorScale": false,
-          "yHistogram": false
-        },
-        "yAxis": {
-          "axisPlacement": "left",
-          "reverse": false,
-          "unit": "ms"
-        }
-      },
-      "pluginVersion": "12.4.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "sum(rate(backfill_batch_blocks_time_download_bucket[$__rate_interval])) by (le)",
-          "format": "heatmap",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Blocks download time",
-      "type": "heatmap"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "scaleDistribution": {
-              "type": "linear"
-            }
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 319
-      },
-      "id": 37,
-      "options": {
-        "calculate": false,
-        "cellGap": 1,
-        "color": {
-          "exponent": 0.5,
-          "fill": "dark-orange",
-          "mode": "scheme",
-          "reverse": false,
-          "scale": "exponential",
-          "scheme": "RdYlBu",
-          "steps": 64
-        },
-        "exemplars": {
-          "color": "rgba(255,0,255,0.7)"
-        },
-        "filterValues": {
-          "le": 1e-9
-        },
-        "legend": {
-          "show": false
-        },
-        "rowsFrame": {
-          "layout": "auto"
-        },
-        "tooltip": {
-          "mode": "single",
-          "showColorScale": false,
-          "yHistogram": false
-        },
-        "yAxis": {
-          "axisPlacement": "left",
-          "reverse": false,
-          "unit": "ms"
-        }
-      },
-      "pluginVersion": "12.4.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "sum(rate(backfill_batch_time_verify_bucket[$__rate_interval])) by (le)",
-          "format": "heatmap",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Blocks verification time",
-      "type": "heatmap"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
           "color": {
             "mode": "palette-classic"
           },
@@ -8925,7 +8704,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 327
+        "y": 319
       },
       "id": 38,
       "options": {
@@ -8977,202 +8756,6 @@
       },
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "scaleDistribution": {
-              "type": "linear"
-            }
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 327
-      },
-      "id": 39,
-      "options": {
-        "calculate": false,
-        "cellGap": 1,
-        "color": {
-          "exponent": 0.5,
-          "fill": "dark-orange",
-          "mode": "scheme",
-          "reverse": false,
-          "scale": "exponential",
-          "scheme": "RdYlBu",
-          "steps": 64
-        },
-        "exemplars": {
-          "color": "rgba(255,0,255,0.7)"
-        },
-        "filterValues": {
-          "le": 1e-9
-        },
-        "legend": {
-          "show": false
-        },
-        "rowsFrame": {
-          "layout": "auto"
-        },
-        "tooltip": {
-          "mode": "single",
-          "showColorScale": false,
-          "yHistogram": false
-        },
-        "yAxis": {
-          "axisPlacement": "left",
-          "reverse": false,
-          "unit": "ms"
-        }
-      },
-      "pluginVersion": "12.4.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "sum(rate(backfill_batch_blobs_time_download_bucket[$__rate_interval])) by (le)",
-          "format": "heatmap",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Blobs download time",
-      "type": "heatmap"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "opacity",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 2,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "sishort"
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Bytes"
-            },
-            "properties": [
-              {
-                "id": "custom.axisPlacement",
-                "value": "right"
-              },
-              {
-                "id": "unit",
-                "value": "bytes"
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 335
-      },
-      "id": 40,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": false
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "multi",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "12.4.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "backfill_data_column_sidecar_downloaded",
-          "legendFormat": "{{index}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Downloaded data column sidecars",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
           "color": {
             "mode": "palette-classic"
           },
@@ -9249,7 +8832,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 335
+        "y": 319
       },
       "id": 43,
       "options": {
@@ -9301,59 +8884,96 @@
       },
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
             }
-          }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "sishort"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Bytes"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "unit",
+                "value": "bytes"
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 343
+        "y": 327
       },
-      "id": 41,
+      "id": 40,
       "options": {
-        "calculate": false,
-        "cellGap": 1,
-        "color": {
-          "exponent": 0.5,
-          "fill": "dark-orange",
-          "mode": "scheme",
-          "reverse": false,
-          "scale": "exponential",
-          "scheme": "RdYlBu",
-          "steps": 64
-        },
-        "exemplars": {
-          "color": "rgba(255,0,255,0.7)"
-        },
-        "filterValues": {
-          "le": 1e-9
-        },
         "legend": {
-          "show": false
-        },
-        "rowsFrame": {
-          "layout": "auto"
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
         },
         "tooltip": {
-          "mode": "single",
-          "showColorScale": false,
-          "yHistogram": false
-        },
-        "yAxis": {
-          "axisPlacement": "left",
-          "reverse": false,
-          "unit": "ms"
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
         }
       },
       "pluginVersion": "12.4.3",
@@ -9364,95 +8984,14 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "sum(rate(backfill_batch_columns_time_download_bucket[$__rate_interval])) by (le)",
-          "format": "heatmap",
-          "legendFormat": "__auto",
+          "expr": "backfill_data_column_sidecar_downloaded",
+          "legendFormat": "{{index}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Data column sidecars download time",
-      "type": "heatmap"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "scaleDistribution": {
-              "type": "linear"
-            }
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 343
-      },
-      "id": 42,
-      "options": {
-        "calculate": false,
-        "cellGap": 1,
-        "color": {
-          "exponent": 0.5,
-          "fill": "dark-orange",
-          "mode": "scheme",
-          "reverse": false,
-          "scale": "exponential",
-          "scheme": "RdYlBu",
-          "steps": 64
-        },
-        "exemplars": {
-          "color": "rgba(255,0,255,0.7)"
-        },
-        "filterValues": {
-          "le": 1e-9
-        },
-        "legend": {
-          "show": false
-        },
-        "rowsFrame": {
-          "layout": "auto"
-        },
-        "tooltip": {
-          "mode": "single",
-          "showColorScale": false,
-          "yHistogram": false
-        },
-        "yAxis": {
-          "axisPlacement": "left",
-          "reverse": false,
-          "unit": "ms"
-        }
-      },
-      "pluginVersion": "12.4.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "sum(rate(backfill_batch_columns_time_verify_bucket[$__rate_interval])) by (le)",
-          "format": "heatmap",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Data column sidecars verification time",
-      "type": "heatmap"
+      "title": "Downloaded data column sidecars",
+      "type": "timeseries"
     }
   ],
   "preload": false,
@@ -9485,13 +9024,13 @@
     ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Beacon node",
   "uid": "adnmforf",
-  "version": 26,
+  "version": 29,
   "weekStart": ""
 }
