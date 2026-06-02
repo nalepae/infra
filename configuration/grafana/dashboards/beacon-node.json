@@ -61,7 +61,7 @@
           "type": "loki",
           "uid": "loki"
         },
-        "enable": false,
+        "enable": true,
         "expr": "{service_name=\"beacon\", level=\"info\"} |= \"Synced new block\" | logfmt | sinceSlotStartTime > 4s",
         "hide": false,
         "iconColor": "orange",
@@ -509,6 +509,77 @@
       "title": "Validators balance (ETH)",
       "transparent": true,
       "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "loki"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "yellow",
+                "value": 3
+              },
+              {
+                "color": "red",
+                "value": 10
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 19,
+        "y": 1
+      },
+      "id": 222,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "loki"
+          },
+          "direction": "backward",
+          "editorMode": "code",
+          "expr": "sum(count_over_time({service_name=\"beacon\", level=\"info\"} |= \"Synced new block\" | logfmt | sinceSlotStartTime > 4s [24h])) / 7200",
+          "queryType": "range",
+          "refId": "B"
+        }
+      ],
+      "title": "Synced new block > 4s [24h]",
+      "type": "gauge"
     },
     {
       "datasource": {
@@ -9151,13 +9222,13 @@
     ]
   },
   "time": {
-    "from": "now-3h",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "utc",
   "title": "Beacon node",
   "uid": "adnmforf",
-  "version": 40,
+  "version": 44,
   "weekStart": ""
 }
