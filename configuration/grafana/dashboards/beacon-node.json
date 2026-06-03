@@ -270,79 +270,6 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": 0
-              },
-              {
-                "color": "#EAB839",
-                "value": 1
-              },
-              {
-                "color": "red",
-                "value": 2
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 2,
-        "x": 5,
-        "y": 1
-      },
-      "id": 65,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "percentChangeColorMode": "standard",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "12.4.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "beacon_clock_time_slot-beacon_slot",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Distance from tips (slots)",
-      "transparent": true,
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
                 "color": "blue",
                 "value": 0
               }
@@ -512,19 +439,15 @@
     },
     {
       "datasource": {
-        "type": "loki",
-        "uid": "loki"
+        "type": "prometheus",
+        "uid": "prometheus"
       },
-      "description": "The number of blocks synced after the 4 seconds deadline during the last 24 hours, excluding reorged blocks.",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "thresholds"
           },
-          "decimals": 2,
-          "fieldMinMax": false,
           "mappings": [],
-          "max": 0.04,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -533,30 +456,32 @@
                 "value": 0
               },
               {
-                "color": "yellow",
-                "value": 0.01
+                "color": "#EAB839",
+                "value": 1
               },
               {
                 "color": "red",
-                "value": 0.03
+                "value": 2
               }
             ]
           },
-          "unit": "percentunit"
+          "unit": "dtdhms"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 3,
         "w": 4,
         "x": 19,
         "y": 1
       },
-      "id": 222,
+      "id": 212,
       "options": {
-        "minVizHeight": 75,
-        "minVizWidth": 75,
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -564,26 +489,27 @@
           "fields": "",
           "values": false
         },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true,
-        "sizing": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
       "pluginVersion": "12.4.3",
       "targets": [
         {
           "datasource": {
-            "type": "loki",
-            "uid": "loki"
+            "type": "prometheus",
+            "uid": "prometheus"
           },
-          "direction": "backward",
           "editorMode": "code",
-          "expr": "( sum(count_over_time({service_name=\"beacon\", level=\"info\"} |= \"Synced new block\" | logfmt | sinceSlotStartTime > 4s [24h])) - sum(count_over_time({service_name=\"beacon\", level=\"info\"} |= \"Chain reorg occurred\" [24h]))) / 7200",
-          "queryType": "range",
-          "refId": "B"
+          "expr": "(beacon_clock_time_slot-beacon_slot)*12",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
         }
       ],
-      "title": "Synced new block > 4s [24h]",
-      "type": "gauge"
+      "title": "Distance from tips (time)",
+      "transparent": true,
+      "type": "stat"
     },
     {
       "datasource": {
@@ -685,21 +611,20 @@
                 "value": 2
               }
             ]
-          },
-          "unit": "dtdhms"
+          }
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
-        "w": 2,
-        "x": 5,
+        "w": 4,
+        "x": 19,
         "y": 4
       },
-      "id": 212,
+      "id": 65,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "percentChangeColorMode": "standard",
@@ -722,15 +647,155 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "(beacon_clock_time_slot-beacon_slot)*12",
+          "expr": "beacon_clock_time_slot-beacon_slot",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Distance from tips (time°",
+      "title": "Distance from tips (slots)",
       "transparent": true,
       "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "loki"
+      },
+      "description": "The number of blocks synced after the 4 seconds deadline during the last 24 hours, excluding reorged blocks.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "fieldMinMax": false,
+          "mappings": [],
+          "max": 0.04,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "yellow",
+                "value": 0.01
+              },
+              {
+                "color": "red",
+                "value": 0.03
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 0,
+        "y": 7
+      },
+      "id": 222,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "loki"
+          },
+          "direction": "backward",
+          "editorMode": "code",
+          "expr": "( sum(count_over_time({service_name=\"beacon\", level=\"info\"} |= \"Synced new block\" | logfmt | sinceSlotStartTime > 4s [24h])) - sum(count_over_time({service_name=\"beacon\", level=\"info\"} |= \"Chain reorg occurred\" [24h]))) / 7200",
+          "queryType": "range",
+          "refId": "B"
+        }
+      ],
+      "title": "Synced new block > 4s [24h]",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "description": "The number of blocks synced after the 4 seconds deadline during the last 24 hours, excluding reorged blocks.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 4,
+        "y": 7
+      },
+      "id": 223,
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "12.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "backfill_batches_imported / (backfill_batches_imported + backfill_remaining_batches)",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Backfill completion",
+      "type": "gauge"
     },
     {
       "collapsed": false,
@@ -738,7 +803,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 13
       },
       "id": 14,
       "panels": [],
@@ -811,7 +876,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 8
+        "y": 14
       },
       "id": 12,
       "options": {
@@ -923,7 +988,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 8
+        "y": 14
       },
       "id": 215,
       "options": {
@@ -1037,7 +1102,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 16
+        "y": 22
       },
       "id": 219,
       "options": {
@@ -1149,7 +1214,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 16
+        "y": 22
       },
       "id": 95,
       "options": {
@@ -1262,7 +1327,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 24
+        "y": 30
       },
       "id": 220,
       "options": {
@@ -1405,7 +1470,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 24
+        "y": 30
       },
       "id": 211,
       "options": {
@@ -1516,7 +1581,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 32
+        "y": 38
       },
       "id": 76,
       "options": {
@@ -1567,7 +1632,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 40
+        "y": 46
       },
       "id": 13,
       "panels": [],
@@ -1685,7 +1750,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 41
+        "y": 47
       },
       "id": 5,
       "options": {
@@ -1862,7 +1927,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 41
+        "y": 47
       },
       "id": 6,
       "options": {
@@ -2010,7 +2075,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 49
+        "y": 55
       },
       "id": 4,
       "options": {
@@ -2142,7 +2207,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 49
+        "y": 55
       },
       "id": 24,
       "options": {
@@ -2266,7 +2331,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 57
+        "y": 63
       },
       "id": 19,
       "options": {
@@ -2402,7 +2467,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 57
+        "y": 63
       },
       "id": 3,
       "options": {
@@ -2512,7 +2577,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 65
+        "y": 71
       },
       "id": 23,
       "options": {
@@ -2636,7 +2701,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 65
+        "y": 71
       },
       "id": 10,
       "options": {
@@ -2765,7 +2830,7 @@
         "h": 13,
         "w": 24,
         "x": 0,
-        "y": 73
+        "y": 79
       },
       "id": 201,
       "options": {
@@ -3021,7 +3086,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 86
+        "y": 92
       },
       "id": 62,
       "panels": [],
@@ -3124,7 +3189,7 @@
         "h": 11,
         "w": 24,
         "x": 0,
-        "y": 87
+        "y": 93
       },
       "id": 221,
       "options": {
@@ -3283,7 +3348,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 98
+        "y": 104
       },
       "id": 217,
       "options": {
@@ -3406,7 +3471,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 98
+        "y": 104
       },
       "id": 108,
       "options": {
@@ -3448,7 +3513,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 106
+        "y": 112
       },
       "id": 66,
       "panels": [],
@@ -3533,7 +3598,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 107
+        "y": 113
       },
       "id": 67,
       "options": {
@@ -3644,7 +3709,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 107
+        "y": 113
       },
       "id": 71,
       "options": {
@@ -3780,7 +3845,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 115
+        "y": 121
       },
       "id": 72,
       "options": {
@@ -3880,7 +3945,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 115
+        "y": 121
       },
       "id": 214,
       "options": {
@@ -3920,7 +3985,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 123
+        "y": 129
       },
       "id": 22,
       "panels": [],
@@ -3951,7 +4016,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 124
+        "y": 130
       },
       "id": 216,
       "options": {
@@ -4031,7 +4096,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 124
+        "y": 130
       },
       "id": 50,
       "options": {
@@ -4153,7 +4218,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 132
+        "y": 138
       },
       "id": 56,
       "options": {
@@ -4264,7 +4329,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 132
+        "y": 138
       },
       "id": 61,
       "options": {
@@ -4404,7 +4469,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 140
+        "y": 146
       },
       "id": 57,
       "options": {
@@ -4527,7 +4592,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 140
+        "y": 146
       },
       "id": 51,
       "options": {
@@ -4596,7 +4661,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 148
+        "y": 154
       },
       "id": 55,
       "options": {
@@ -4717,7 +4782,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 148
+        "y": 154
       },
       "id": 52,
       "options": {
@@ -4786,7 +4851,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 156
+        "y": 162
       },
       "id": 48,
       "options": {
@@ -4908,7 +4973,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 156
+        "y": 162
       },
       "id": 45,
       "options": {
@@ -4977,7 +5042,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 164
+        "y": 170
       },
       "id": 47,
       "options": {
@@ -5039,7 +5104,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 172
+        "y": 178
       },
       "id": 27,
       "panels": [],
@@ -5112,7 +5177,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 173
+        "y": 179
       },
       "id": 69,
       "options": {
@@ -5223,7 +5288,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 173
+        "y": 179
       },
       "id": 49,
       "options": {
@@ -5334,7 +5399,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 181
+        "y": 187
       },
       "id": 78,
       "options": {
@@ -5433,7 +5498,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 181
+        "y": 187
       },
       "id": 73,
       "options": {
@@ -5543,7 +5608,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 189
+        "y": 195
       },
       "id": 86,
       "options": {
@@ -5641,7 +5706,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 189
+        "y": 195
       },
       "id": 85,
       "options": {
@@ -5739,7 +5804,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 197
+        "y": 203
       },
       "id": 87,
       "options": {
@@ -5837,7 +5902,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 197
+        "y": 203
       },
       "id": 64,
       "options": {
@@ -5959,7 +6024,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 205
+        "y": 211
       },
       "id": 91,
       "options": {
@@ -6098,7 +6163,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 205
+        "y": 211
       },
       "id": 88,
       "options": {
@@ -6197,7 +6262,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 213
+        "y": 219
       },
       "id": 89,
       "options": {
@@ -6308,7 +6373,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 213
+        "y": 219
       },
       "id": 83,
       "options": {
@@ -6435,7 +6500,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 221
+        "y": 227
       },
       "id": 103,
       "options": {
@@ -6534,7 +6599,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 221
+        "y": 227
       },
       "id": 101,
       "options": {
@@ -6633,7 +6698,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 229
+        "y": 235
       },
       "id": 102,
       "options": {
@@ -6792,7 +6857,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 229
+        "y": 235
       },
       "id": 99,
       "options": {
@@ -6928,7 +6993,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 237
+        "y": 243
       },
       "id": 98,
       "options": {
@@ -7060,7 +7125,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 237
+        "y": 243
       },
       "id": 100,
       "options": {
@@ -7172,7 +7237,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 245
+        "y": 251
       },
       "id": 213,
       "options": {
@@ -7211,7 +7276,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 253
+        "y": 259
       },
       "id": 203,
       "panels": [],
@@ -7246,7 +7311,7 @@
         "h": 4,
         "w": 4,
         "x": 0,
-        "y": 254
+        "y": 260
       },
       "id": 207,
       "options": {
@@ -7324,7 +7389,7 @@
         "h": 4,
         "w": 4,
         "x": 4,
-        "y": 254
+        "y": 260
       },
       "id": 206,
       "options": {
@@ -7402,7 +7467,7 @@
         "h": 4,
         "w": 4,
         "x": 8,
-        "y": 254
+        "y": 260
       },
       "id": 205,
       "options": {
@@ -7465,7 +7530,7 @@
         "h": 18,
         "w": 24,
         "x": 0,
-        "y": 258
+        "y": 264
       },
       "id": 209,
       "options": {
@@ -7689,7 +7754,7 @@
         "h": 12,
         "w": 24,
         "x": 0,
-        "y": 276
+        "y": 282
       },
       "id": 210,
       "options": {
@@ -7773,7 +7838,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 288
+        "y": 294
       },
       "id": 111,
       "panels": [],
@@ -7846,7 +7911,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 289
+        "y": 295
       },
       "id": 7,
       "options": {
@@ -7973,7 +8038,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 289
+        "y": 295
       },
       "id": 96,
       "options": {
@@ -8104,7 +8169,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 297
+        "y": 303
       },
       "id": 97,
       "options": {
@@ -8216,7 +8281,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 297
+        "y": 303
       },
       "id": 113,
       "options": {
@@ -8267,7 +8332,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 305
+        "y": 311
       },
       "id": 29,
       "panels": [],
@@ -8340,7 +8405,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 306
+        "y": 312
       },
       "id": 30,
       "options": {
@@ -8438,7 +8503,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 306
+        "y": 312
       },
       "id": 31,
       "options": {
@@ -8554,7 +8619,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 314
+        "y": 320
       },
       "id": 32,
       "options": {
@@ -8682,7 +8747,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 314
+        "y": 320
       },
       "id": 35,
       "options": {
@@ -8784,7 +8849,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "sishort"
         },
         "overrides": [
           {
@@ -8809,15 +8875,15 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 322
+        "y": 328
       },
-      "id": 38,
+      "id": 40,
       "options": {
         "legend": {
           "calcs": [],
           "displayMode": "list",
           "placement": "bottom",
-          "showLegend": true
+          "showLegend": false
         },
         "tooltip": {
           "hideZeros": false,
@@ -8833,25 +8899,13 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "backfill_blobs_download_count",
-          "legendFormat": "Blob sidecars",
+          "expr": "backfill_data_column_sidecar_downloaded",
+          "legendFormat": "{{index}}",
           "range": true,
           "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "backfill_blobs_bytes_downloaded",
-          "instant": false,
-          "legendFormat": "Bytes",
-          "range": true,
-          "refId": "B"
         }
       ],
-      "title": "Downloaded blob sidecars",
+      "title": "Downloaded data column sidecars",
       "type": "timeseries"
     },
     {
@@ -8937,7 +8991,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 322
+        "y": 328
       },
       "id": 43,
       "options": {
@@ -8981,122 +9035,6 @@
       ],
       "title": "Downloaded data column sidecars",
       "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "opacity",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 2,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "sishort"
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Bytes"
-            },
-            "properties": [
-              {
-                "id": "custom.axisPlacement",
-                "value": "right"
-              },
-              {
-                "id": "unit",
-                "value": "bytes"
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 330
-      },
-      "id": 40,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": false
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "multi",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "12.4.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
-          "editorMode": "code",
-          "expr": "backfill_data_column_sidecar_downloaded",
-          "legendFormat": "{{index}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Downloaded data column sidecars",
-      "type": "timeseries"
     }
   ],
   "preload": false,
@@ -9129,13 +9067,13 @@
     ]
   },
   "time": {
-    "from": "now-3h",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "utc",
   "title": "Beacon node",
   "uid": "adnmforf",
-  "version": 53,
+  "version": 67,
   "weekStart": ""
 }
