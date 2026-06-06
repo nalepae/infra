@@ -84,6 +84,8 @@ services:
       - --execution-endpoint=http://execution:8551
       - --jwt-secret=/var/run/ipc/jwt-secret
       - --checkpoint-sync-url=${CHECKPOINT_SYNC_URL}
+      - --enable-backfill
+      - --beacon-db-pruning
       - --p2p-host-ip=${P2P_HOST_IP}
       - --rpc-host=0.0.0.0
       - --grpc-gateway-host=0.0.0.0
