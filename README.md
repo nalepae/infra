@@ -4,6 +4,9 @@ Docker Compose stack to run an Ethereum node (execution + consensus) alongside a
 
 ## Services
 
+### `jwt-init`
+One-shot bootstrap container. Generates the shared Engine API JWT secret at `./data/${NETWORK}/ipc/jwt-secret` if it does not already exist, then exits. The execution client and `beacon` both `depends_on` it (`service_completed_successfully`), so the secret is guaranteed to be present before they start. This is client-agnostic: Nethermind would create the secret itself if missing, but Reth requires the file to already exist when `--authrpc.jwtsecret` is set, so generating it up front works for either.
+
 ### `nethermind` / `reth` (execution client)
 Execution layer client. Processes transactions, executes the EVM, and exposes the JSON-RPC and Engine API used by the consensus client. The stack ships **two** alternative execution clients — Nethermind and Reth — exactly one runs at a time, selected via a Compose profile (see [Choosing the execution client](#choosing-the-execution-client)). Whichever is active is reachable under the shared network alias `execution`, so the rest of the stack does not care which one runs.
 

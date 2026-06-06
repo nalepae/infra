@@ -1,7 +1,20 @@
 services:
+  jwt-init:
+    container_name: jwt-init
+    image: alpine:3
+    volumes:
+      - ./data/${NETWORK}/ipc:/ipc
+    command:
+      - sh
+      - -c
+      - test -f /ipc/jwt-secret || od -An -tx1 -N32 /dev/urandom | tr -d ' \n' > /ipc/jwt-secret
+
   nethermind:
     container_name: nethermind
     profiles: ["nethermind"]
+    depends_on:
+      jwt-init:
+        condition: service_completed_successfully
     image: ${NETHERMIND_IMAGE}
     stop_grace_period: 10m
     tty: true
@@ -30,6 +43,9 @@ services:
   reth:
     container_name: reth
     profiles: ["reth"]
+    depends_on:
+      jwt-init:
+        condition: service_completed_successfully
     image: ${RETH_IMAGE}
     stop_grace_period: 10m
     tty: true
@@ -63,6 +79,9 @@ services:
   beacon:
     container_name: beacon
     image: ${BEACON_IMAGE}
+    depends_on:
+      jwt-init:
+        condition: service_completed_successfully
     tty: true
     restart: unless-stopped
     stop_grace_period: 10m
