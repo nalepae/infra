@@ -50,12 +50,11 @@ All other ports (Nethermind JSON-RPC `8545` and Engine API `8551`; beacon REST `
 
 | Variable | Description |
 |----------|-------------|
-| `NETWORK` | Ethereum network name (e.g. `mainnet`, `sepolia`, `holesky`). Used as the Nethermind `--config` value / Reth `--chain` flag, the beacon `--<network>` flag, and to namespace the on-disk data directory under `./data/${NETWORK}/`. |
+| `NETWORK` | Ethereum network name (e.g. `mainnet`, `hoodi`). |
 | `COMPOSE_PROFILES` | Selects the execution client: `nethermind` or `reth`. Only the matching service is started. |
 | `NETHERMIND_IMAGE` | Docker image (with tag) for the `nethermind` service, e.g. `nethermind/nethermind:1.37.2`. Pinned here so upgrades are explicit. Used only when `COMPOSE_PROFILES=nethermind`. |
 | `RETH_IMAGE` | Docker image (with tag) for the `reth` service, e.g. `ghcr.io/paradigmxyz/reth:v1.8.2`. Pinned here so upgrades are explicit. Used only when `COMPOSE_PROFILES=reth`. |
 | `BEACON_IMAGE` | Docker image (with tag) to use for the `beacon` service, e.g. `gcr.io/prysmaticlabs/prysm/beacon-chain:v6.0.4`. |
-| `CHECKPOINT_SYNC_URL` | URL of a trusted beacon checkpoint-sync provider. Lets the beacon node start from a recent finalized state instead of syncing from genesis. |
 | `P2P_HOST_IP` | Public IP address of the host, advertised by the beacon node to peers (`--p2p-host-ip`). Required so inbound libp2p connections from the rest of the network can reach this node. |
 
 

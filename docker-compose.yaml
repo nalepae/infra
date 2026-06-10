@@ -102,7 +102,7 @@ services:
       - --suggested-fee-recipient=0xbB52ca978a8a2598e496dC1Eed76C23F2400541b
       - --execution-endpoint=http://execution:8551
       - --jwt-secret=/var/run/ipc/jwt-secret
-      - --checkpoint-sync-url=${CHECKPOINT_SYNC_URL}
+      - --checkpoint-sync-url=https://${NETWORK}-checkpoint-sync.stakely.io
       - --enable-backfill
       - --beacon-db-pruning
       - --p2p-host-ip=${P2P_HOST_IP}
@@ -121,7 +121,6 @@ services:
     environment:
       - BEACON_IMAGE=${BEACON_IMAGE}
       - NETWORK=${NETWORK}
-      - CHECKPOINT_SYNC_URL=${CHECKPOINT_SYNC_URL}
       - P2P_HOST_IP=${P2P_HOST_IP}
 
   peer-geo-exporter:
