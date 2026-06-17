@@ -40,36 +40,38 @@ services:
         aliases:
           - execution
 
-  reth:
-    container_name: reth
-    profiles: ["reth"]
+  geth:
+    container_name: geth
+    profiles: ["geth"]
     depends_on:
       jwt-init:
         condition: service_completed_successfully
-    image: ${RETH_IMAGE}
+    image: ${GETH_IMAGE}
     stop_grace_period: 10m
     tty: true
     restart: unless-stopped
     volumes:
-      - ./data/${NETWORK}/reth:/data
+      - ./data/${NETWORK}/geth:/data
       - ./data/${NETWORK}/ipc:/ipc
     ports:
-      - "30303:30303" # p2p
+      - "30303:30303" # p2p (TCP)
+      - "30303:30303/udp" # p2p (UDP)
       - "127.0.0.1:8545:8545" # JSON-RPC
       - "127.0.0.1:8551:8551" # Engine API
     command:
-      - node
-      - --chain=${NETWORK}
+      - --${NETWORK}
       - --datadir=/data
       - --http
       - --http.addr=0.0.0.0
       - --http.port=8545
+      - --http.vhosts=*
+      - --http.api=eth,net,web3
       - --authrpc.addr=0.0.0.0
       - --authrpc.port=8551
+      - --authrpc.vhosts=*
       - --authrpc.jwtsecret=/ipc/jwt-secret
-      - --minimal
     environment:
-      - RETH_IMAGE=${RETH_IMAGE}
+      - GETH_IMAGE=${GETH_IMAGE}
       - NETWORK=${NETWORK}
     networks:
       default:

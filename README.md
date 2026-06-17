@@ -5,10 +5,10 @@ Docker Compose stack to run an Ethereum node (execution + consensus) alongside a
 ## Services
 
 ### `jwt-init`
-One-shot bootstrap container. Generates the shared Engine API JWT secret at `./data/${NETWORK}/ipc/jwt-secret` if it does not already exist, then exits. The execution client and `beacon` both `depends_on` it (`service_completed_successfully`), so the secret is guaranteed to be present before they start. This is client-agnostic: Nethermind would create the secret itself if missing, but Reth requires the file to already exist when `--authrpc.jwtsecret` is set, so generating it up front works for either.
+One-shot bootstrap container. Generates the shared Engine API JWT secret at `./data/${NETWORK}/ipc/jwt-secret` if it does not already exist, then exits. The execution client and `beacon` both `depends_on` it (`service_completed_successfully`), so the secret is guaranteed to be present before they start. This is client-agnostic: both Nethermind and Geth would create the secret themselves if missing, but generating it up front guarantees the file is present before either starts.
 
-### `nethermind` / `reth` (execution client)
-Execution layer client. Processes transactions, executes the EVM, and exposes the JSON-RPC and Engine API used by the consensus client. The stack ships **two** alternative execution clients — Nethermind and Reth — exactly one runs at a time, selected via a Compose profile (see [Choosing the execution client](#choosing-the-execution-client)). Whichever is active is reachable under the shared network alias `execution`, so the rest of the stack does not care which one runs.
+### `nethermind` / `geth` (execution client)
+Execution layer client. Processes transactions, executes the EVM, and exposes the JSON-RPC and Engine API used by the consensus client. The stack ships **two** alternative execution clients — Nethermind and Geth — exactly one runs at a time, selected via a Compose profile (see [Choosing the execution client](#choosing-the-execution-client)). Whichever is active is reachable under the shared network alias `execution`, so the rest of the stack does not care which one runs.
 
 ### `beacon`
 Consensus layer client (Prysm). Drives consensus, follows the beacon chain, and instructs the execution client what to build/validate via the Engine API (`http://execution:8551`). Authenticates with a shared JWT secret mounted from `./data/${NETWORK}/ipc`.
@@ -51,9 +51,9 @@ All other ports (Nethermind JSON-RPC `8545` and Engine API `8551`; beacon REST `
 | Variable | Description |
 |----------|-------------|
 | `NETWORK` | Ethereum network name (e.g. `mainnet`, `hoodi`). |
-| `COMPOSE_PROFILES` | Selects the execution client: `nethermind` or `reth`. Only the matching service is started. |
+| `COMPOSE_PROFILES` | Selects the execution client: `nethermind` or `geth`. Only the matching service is started. |
 | `NETHERMIND_IMAGE` | Docker image (with tag) for the `nethermind` service, e.g. `nethermind/nethermind:1.37.2`. Pinned here so upgrades are explicit. Used only when `COMPOSE_PROFILES=nethermind`. |
-| `RETH_IMAGE` | Docker image (with tag) for the `reth` service, e.g. `ghcr.io/paradigmxyz/reth:v1.8.2`. Pinned here so upgrades are explicit. Used only when `COMPOSE_PROFILES=reth`. |
+| `GETH_IMAGE` | Docker image (with tag) for the `geth` service, e.g. `ethereum/client-go:v1.16.1`. Pinned here so upgrades are explicit. Used only when `COMPOSE_PROFILES=geth`. |
 | `BEACON_IMAGE` | Docker image (with tag) to use for the `beacon` service, e.g. `gcr.io/prysmaticlabs/prysm/beacon-chain:v6.0.4`. |
 | `P2P_HOST_IP` | Public IP address of the host, advertised by the beacon node to peers (`--p2p-host-ip`). Required so inbound libp2p connections from the rest of the network can reach this node. |
 
