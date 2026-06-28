@@ -121,6 +121,7 @@ services:
       - --tracing-endpoint=http://tempo:4318/v1/traces
       - --tracing-process-name=beacon
       - --trace-sample-fraction=1.0
+      - --postpone-shutdown-for-proposals
     environment:
       - BEACON_IMAGE=${BEACON_IMAGE}
       - NETWORK=${NETWORK}
