@@ -163,7 +163,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -235,7 +235,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -316,7 +316,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -419,7 +419,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -493,7 +493,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -564,7 +564,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -639,7 +639,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -715,7 +715,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -781,7 +781,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -892,7 +892,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -1004,7 +1004,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -1118,7 +1118,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -1230,7 +1230,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -1343,7 +1343,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -1486,7 +1486,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -1597,7 +1597,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -1766,7 +1766,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -1943,7 +1943,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -2091,7 +2091,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -2223,7 +2223,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -2347,7 +2347,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -2483,7 +2483,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -2593,7 +2593,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -2717,7 +2717,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -2853,7 +2853,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -3147,7 +3147,7 @@
           "zoom": 2
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -3341,7 +3341,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -3447,6 +3447,160 @@
             "insertNulls": false,
             "lineInterpolation": "smooth",
             "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "sishort"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "limit"
+            },
+            "properties": [
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    10,
+                    10
+                  ],
+                  "fill": "dash"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 112
+      },
+      "id": 234,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "hoverProximity": -4,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.4.12",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "beacon_payload_gas_used",
+          "legendFormat": "[inst]",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "avg_over_time(beacon_payload_gas_used[2h])",
+          "instant": false,
+          "legendFormat": "[2h]",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "beacon_payload_gas_limit",
+          "instant": false,
+          "legendFormat": "limit",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "Gas",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
             "pointSize": 0,
             "scaleDistribution": {
               "type": "linear"
@@ -3496,7 +3650,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 112
+        "y": 120
       },
       "id": 108,
       "options": {
@@ -3512,7 +3666,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -3538,7 +3692,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 120
+        "y": 128
       },
       "id": 230,
       "panels": [],
@@ -3611,7 +3765,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 121
+        "y": 129
       },
       "id": 12,
       "options": {
@@ -3627,7 +3781,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -3711,7 +3865,7 @@
         "h": 8,
         "w": 6,
         "x": 12,
-        "y": 121
+        "y": 129
       },
       "id": 232,
       "options": {
@@ -3727,7 +3881,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -3811,7 +3965,7 @@
         "h": 8,
         "w": 6,
         "x": 18,
-        "y": 121
+        "y": 129
       },
       "id": 233,
       "options": {
@@ -3827,7 +3981,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -3851,7 +4005,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 129
+        "y": 137
       },
       "id": 66,
       "panels": [],
@@ -3936,7 +4090,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 130
+        "y": 138
       },
       "id": 67,
       "options": {
@@ -3953,7 +4107,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -4047,7 +4201,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 130
+        "y": 138
       },
       "id": 71,
       "options": {
@@ -4064,7 +4218,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -4183,7 +4337,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 138
+        "y": 146
       },
       "id": 72,
       "options": {
@@ -4200,7 +4354,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -4283,7 +4437,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 138
+        "y": 146
       },
       "id": 214,
       "options": {
@@ -4300,7 +4454,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -4323,7 +4477,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 146
+        "y": 154
       },
       "id": 22,
       "panels": [],
@@ -4354,7 +4508,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 147
+        "y": 155
       },
       "id": 216,
       "options": {
@@ -4392,7 +4546,7 @@
           "unit": "ms"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -4434,7 +4588,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 147
+        "y": 155
       },
       "id": 50,
       "options": {
@@ -4472,7 +4626,7 @@
           "unit": "ms"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -4556,7 +4710,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 155
+        "y": 163
       },
       "id": 56,
       "options": {
@@ -4572,7 +4726,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -4667,7 +4821,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 155
+        "y": 163
       },
       "id": 61,
       "options": {
@@ -4683,7 +4837,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -4807,7 +4961,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 163
+        "y": 171
       },
       "id": 57,
       "options": {
@@ -4823,7 +4977,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -4930,7 +5084,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 163
+        "y": 171
       },
       "id": 51,
       "options": {
@@ -4946,7 +5100,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -4999,7 +5153,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 171
+        "y": 179
       },
       "id": 55,
       "options": {
@@ -5037,7 +5191,7 @@
           "unit": "ms"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -5120,7 +5274,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 171
+        "y": 179
       },
       "id": 52,
       "options": {
@@ -5136,7 +5290,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -5189,7 +5343,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 179
+        "y": 187
       },
       "id": 48,
       "options": {
@@ -5227,7 +5381,7 @@
           "unit": "ms"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -5269,7 +5423,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 179
+        "y": 187
       },
       "id": 47,
       "options": {
@@ -5307,7 +5461,7 @@
           "unit": "ms"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -5391,7 +5545,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 187
+        "y": 195
       },
       "id": 45,
       "options": {
@@ -5407,7 +5561,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -5442,7 +5596,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 195
+        "y": 203
       },
       "id": 27,
       "panels": [],
@@ -5515,7 +5669,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 196
+        "y": 204
       },
       "id": 69,
       "options": {
@@ -5531,7 +5685,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -5626,7 +5780,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 196
+        "y": 204
       },
       "id": 49,
       "options": {
@@ -5642,7 +5796,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -5737,7 +5891,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 204
+        "y": 212
       },
       "id": 78,
       "options": {
@@ -5753,7 +5907,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -5836,7 +5990,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 204
+        "y": 212
       },
       "id": 73,
       "options": {
@@ -5852,7 +6006,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -5946,7 +6100,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 212
+        "y": 220
       },
       "id": 86,
       "options": {
@@ -5962,7 +6116,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -6044,7 +6198,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 212
+        "y": 220
       },
       "id": 85,
       "options": {
@@ -6060,7 +6214,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -6142,7 +6296,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 220
+        "y": 228
       },
       "id": 87,
       "options": {
@@ -6158,7 +6312,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -6240,7 +6394,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 220
+        "y": 228
       },
       "id": 64,
       "options": {
@@ -6256,7 +6410,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -6362,7 +6516,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 228
+        "y": 236
       },
       "id": 91,
       "options": {
@@ -6378,7 +6532,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -6501,7 +6655,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 228
+        "y": 236
       },
       "id": 88,
       "options": {
@@ -6517,7 +6671,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -6600,7 +6754,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 236
+        "y": 244
       },
       "id": 89,
       "options": {
@@ -6616,7 +6770,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -6711,7 +6865,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 236
+        "y": 244
       },
       "id": 83,
       "options": {
@@ -6727,7 +6881,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -6838,7 +6992,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 244
+        "y": 252
       },
       "id": 103,
       "options": {
@@ -6854,7 +7008,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -6937,7 +7091,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 244
+        "y": 252
       },
       "id": 101,
       "options": {
@@ -6953,7 +7107,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -7036,7 +7190,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 252
+        "y": 260
       },
       "id": 102,
       "options": {
@@ -7052,7 +7206,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -7195,7 +7349,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 252
+        "y": 260
       },
       "id": 99,
       "options": {
@@ -7211,7 +7365,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -7331,7 +7485,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 260
+        "y": 268
       },
       "id": 98,
       "options": {
@@ -7347,7 +7501,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -7463,7 +7617,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 260
+        "y": 268
       },
       "id": 100,
       "options": {
@@ -7479,7 +7633,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -7575,7 +7729,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 268
+        "y": 276
       },
       "id": 213,
       "options": {
@@ -7591,7 +7745,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -7614,7 +7768,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 276
+        "y": 284
       },
       "id": 203,
       "panels": [],
@@ -7649,7 +7803,7 @@
         "h": 4,
         "w": 4,
         "x": 0,
-        "y": 277
+        "y": 285
       },
       "id": 207,
       "options": {
@@ -7669,7 +7823,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "columns": [
@@ -7727,7 +7881,7 @@
         "h": 4,
         "w": 4,
         "x": 4,
-        "y": 277
+        "y": 285
       },
       "id": 206,
       "options": {
@@ -7747,7 +7901,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "columns": [
@@ -7805,7 +7959,7 @@
         "h": 4,
         "w": 4,
         "x": 8,
-        "y": 277
+        "y": 285
       },
       "id": 205,
       "options": {
@@ -7825,7 +7979,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "columns": [
@@ -7868,7 +8022,7 @@
         "h": 18,
         "w": 24,
         "x": 0,
-        "y": 281
+        "y": 289
       },
       "id": 209,
       "options": {
@@ -8092,7 +8246,7 @@
         "h": 12,
         "w": 24,
         "x": 0,
-        "y": 299
+        "y": 307
       },
       "id": 210,
       "options": {
@@ -8105,7 +8259,7 @@
           }
         ]
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "columns": [
@@ -8176,7 +8330,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 311
+        "y": 319
       },
       "id": 111,
       "panels": [],
@@ -8249,7 +8403,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 312
+        "y": 320
       },
       "id": 7,
       "options": {
@@ -8265,7 +8419,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -8376,7 +8530,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 312
+        "y": 320
       },
       "id": 96,
       "options": {
@@ -8392,7 +8546,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -8507,7 +8661,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 320
+        "y": 328
       },
       "id": 97,
       "options": {
@@ -8523,7 +8677,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -8619,7 +8773,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 320
+        "y": 328
       },
       "id": 113,
       "options": {
@@ -8635,7 +8789,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -8670,7 +8824,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 328
+        "y": 336
       },
       "id": 29,
       "panels": [],
@@ -8743,7 +8897,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 329
+        "y": 337
       },
       "id": 30,
       "options": {
@@ -8759,7 +8913,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -8841,7 +8995,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 329
+        "y": 337
       },
       "id": 31,
       "options": {
@@ -8857,7 +9011,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -8957,7 +9111,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 337
+        "y": 345
       },
       "id": 32,
       "options": {
@@ -8973,7 +9127,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -9085,7 +9239,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 337
+        "y": 345
       },
       "id": 35,
       "options": {
@@ -9101,7 +9255,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -9213,7 +9367,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 345
+        "y": 353
       },
       "id": 40,
       "options": {
@@ -9229,7 +9383,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.9",
+      "pluginVersion": "12.4.12",
       "targets": [
         {
           "datasource": {
@@ -9284,6 +9438,6 @@
   "timezone": "utc",
   "title": "Beacon node",
   "uid": "adnmforf",
-  "version": 74,
+  "version": 4,
   "weekStart": ""
 }
