@@ -23,7 +23,7 @@
           "type": "loki",
           "uid": "loki"
         },
-        "enable": true,
+        "enable": false,
         "expr": "{service_name=\"beacon\", level=\"info\"} |= \"Saved state in DB\"",
         "hide": false,
         "iconColor": "yellow",
@@ -163,7 +163,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.12",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -235,7 +235,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "12.4.12",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -316,7 +316,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.12",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -419,7 +419,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.12",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -493,7 +493,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.12",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -564,7 +564,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.12",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -639,7 +639,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.12",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -715,7 +715,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "12.4.12",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -781,7 +781,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "12.4.12",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -892,7 +892,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.12",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -1004,7 +1004,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.12",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -1016,7 +1016,7 @@
           "expr": "go_memstats_alloc_bytes{job=\"beacon\"}",
           "format": "time_series",
           "instant": false,
-          "legendFormat": "[inst]",
+          "legendFormat": "go [inst]",
           "range": true,
           "refId": "B"
         },
@@ -1028,9 +1028,21 @@
           "editorMode": "code",
           "expr": "avg_over_time(go_memstats_alloc_bytes{job=\"beacon\"}[2h])",
           "instant": false,
-          "legendFormat": "[2h]",
+          "legendFormat": "go [2h]",
           "range": true,
           "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "process_resident_memory_bytes{job=\"beacon\"}",
+          "instant": false,
+          "legendFormat": "rss",
+          "range": true,
+          "refId": "A"
         }
       ],
       "title": "Memory usage heap",
@@ -1118,7 +1130,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.12",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -1230,7 +1242,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.12",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -9431,13 +9443,13 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "utc",
   "title": "Beacon node",
   "uid": "adnmforf",
-  "version": 4,
+  "version": 3,
   "weekStart": ""
 }
