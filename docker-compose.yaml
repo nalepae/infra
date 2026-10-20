@@ -111,7 +111,7 @@ services:
       - --p2p-host-ip=${P2P_HOST_IP}
       - --rpc-host=0.0.0.0
       - --grpc-gateway-host=0.0.0.0
-      - --http-mev-relay=http://mev-boost:18550
+      - --http-mev-relay=${HTTP_MEV_RELAY}
       - --verbosity=debug
       - --blob-storage-layout=by-epoch
       - --monitoring-host=0.0.0.0
@@ -127,6 +127,7 @@ services:
       - BEACON_IMAGE=${BEACON_IMAGE}
       - NETWORK=${NETWORK}
       - P2P_HOST_IP=${P2P_HOST_IP}
+      - HTTP_MEV_RELAY=${HTTP_MEV_RELAY}
 
   peer-geo-exporter:
     container_name: peer-geo-exporter
