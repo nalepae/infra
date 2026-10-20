@@ -4,12 +4,12 @@
   "metadata": {
     "name": "adnmforf",
     "namespace": "default",
-    "uid": "2aa0fea5-1eb8-4902-93ba-072f55d50ca6",
-    "resourceVersion": "1792526440452017",
-    "generation": 8,
-    "creationTimestamp": "2026-09-25T12:43:42Z",
+    "uid": "158c7b16-6b22-4dca-83b0-249266642a6f",
+    "resourceVersion": "1792528455245997",
+    "generation": 15,
+    "creationTimestamp": "2026-09-28T18:00:19Z",
     "labels": {
-      "grafana.app/deprecatedInternalID": "284442232414208"
+      "grafana.app/deprecatedInternalID": "1451284607578112"
     },
     "annotations": {
       "grafana.app/createdBy": "access-policy:service",
@@ -18,11 +18,11 @@
       "grafana.app/managerAllowsEdits": "true",
       "grafana.app/managerId": "dashboards",
       "grafana.app/saved-from-ui": "Grafana v13.0.11 (5486ed9899)",
-      "grafana.app/sourceChecksum": "ea9e9e643a685424c18812859206960a",
+      "grafana.app/sourceChecksum": "5355ad805c9fc8af5c334dd5d62a17b8",
       "grafana.app/sourcePath": "/var/lib/grafana/dashboards/beacon-node.json",
-      "grafana.app/sourceTimestamp": "1792327699000",
-      "grafana.app/updatedBy": "user:afzbk9ofdg3r4b",
-      "grafana.app/updatedTimestamp": "2026-10-20T20:00:40Z"
+      "grafana.app/sourceTimestamp": "1792526803000",
+      "grafana.app/updatedBy": "user:efzn1vl4z5ou8a",
+      "grafana.app/updatedTimestamp": "2026-10-20T20:34:15Z"
     }
   },
   "spec": {
@@ -3682,7 +3682,7 @@
                   "color": "rgba(255,0,255,0.7)"
                 },
                 "filterValues": {
-                  "le": 1e-9
+                  "le": 1e-09
                 },
                 "legend": {
                   "show": false
@@ -5343,6 +5343,44 @@
           }
         }
       },
+      "panel-235": {
+        "kind": "Panel",
+        "spec": {
+          "id": 235,
+          "title": "",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "text",
+            "version": "13.0.11",
+            "spec": {
+              "options": {
+                "code": {
+                  "language": "plaintext",
+                  "showLineNumbers": false,
+                  "showMiniMap": false
+                },
+                "content": "![Prysm Logo](https://files.catbox.moe/0g4sre.png)",
+                "mode": "markdown"
+              },
+              "fieldConfig": {
+                "defaults": {},
+                "overrides": []
+              }
+            }
+          },
+          "transparent": true
+        }
+      },
       "panel-24": {
         "kind": "Panel",
         "spec": {
@@ -6708,7 +6746,7 @@
                   "color": "rgba(255,0,255,0.7)"
                 },
                 "filterValues": {
-                  "le": 1e-9
+                  "le": 1e-09
                 },
                 "legend": {
                   "show": false
@@ -6809,7 +6847,7 @@
                   "color": "rgba(255,0,255,0.7)"
                 },
                 "filterValues": {
-                  "le": 1e-9
+                  "le": 1e-09
                 },
                 "legend": {
                   "show": false
@@ -7237,7 +7275,7 @@
                   "color": "rgba(255,0,255,0.7)"
                 },
                 "filterValues": {
-                  "le": 1e-9
+                  "le": 1e-09
                 },
                 "legend": {
                   "show": false
@@ -7619,7 +7657,7 @@
                   "color": "rgba(255,0,255,0.7)"
                 },
                 "filterValues": {
-                  "le": 1e-9
+                  "le": 1e-09
                 },
                 "legend": {
                   "show": false
@@ -11463,7 +11501,7 @@
                       "spec": {
                         "x": 0,
                         "y": 0,
-                        "width": 2,
+                        "width": 3,
                         "height": 3,
                         "element": {
                           "kind": "ElementReference",
@@ -11474,9 +11512,9 @@
                     {
                       "kind": "GridLayoutItem",
                       "spec": {
-                        "x": 2,
+                        "x": 3,
                         "y": 0,
-                        "width": 3,
+                        "width": 4,
                         "height": 6,
                         "element": {
                           "kind": "ElementReference",
@@ -11487,22 +11525,9 @@
                     {
                       "kind": "GridLayoutItem",
                       "spec": {
-                        "x": 5,
+                        "x": 7,
                         "y": 0,
-                        "width": 4,
-                        "height": 6,
-                        "element": {
-                          "kind": "ElementReference",
-                          "name": "panel-116"
-                        }
-                      }
-                    },
-                    {
-                      "kind": "GridLayoutItem",
-                      "spec": {
-                        "x": 9,
-                        "y": 0,
-                        "width": 4,
+                        "width": 5,
                         "height": 3,
                         "element": {
                           "kind": "ElementReference",
@@ -11513,9 +11538,48 @@
                     {
                       "kind": "GridLayoutItem",
                       "spec": {
+                        "x": 12,
+                        "y": 0,
+                        "width": 4,
+                        "height": 6,
+                        "element": {
+                          "kind": "ElementReference",
+                          "name": "panel-222"
+                        }
+                      }
+                    },
+                    {
+                      "kind": "GridLayoutItem",
+                      "spec": {
+                        "x": 16,
+                        "y": 0,
+                        "width": 4,
+                        "height": 6,
+                        "element": {
+                          "kind": "ElementReference",
+                          "name": "panel-223"
+                        }
+                      }
+                    },
+                    {
+                      "kind": "GridLayoutItem",
+                      "spec": {
+                        "x": 20,
+                        "y": 0,
+                        "width": 4,
+                        "height": 12,
+                        "element": {
+                          "kind": "ElementReference",
+                          "name": "panel-235"
+                        }
+                      }
+                    },
+                    {
+                      "kind": "GridLayoutItem",
+                      "spec": {
                         "x": 0,
                         "y": 3,
-                        "width": 2,
+                        "width": 3,
                         "height": 3,
                         "element": {
                           "kind": "ElementReference",
@@ -11526,9 +11590,9 @@
                     {
                       "kind": "GridLayoutItem",
                       "spec": {
-                        "x": 9,
+                        "x": 7,
                         "y": 3,
-                        "width": 4,
+                        "width": 5,
                         "height": 3,
                         "element": {
                           "kind": "ElementReference",
@@ -11541,7 +11605,7 @@
                       "spec": {
                         "x": 0,
                         "y": 6,
-                        "width": 8,
+                        "width": 14,
                         "height": 6,
                         "element": {
                           "kind": "ElementReference",
@@ -11552,26 +11616,13 @@
                     {
                       "kind": "GridLayoutItem",
                       "spec": {
-                        "x": 0,
-                        "y": 12,
-                        "width": 5,
-                        "height": 7,
+                        "x": 14,
+                        "y": 6,
+                        "width": 6,
+                        "height": 6,
                         "element": {
                           "kind": "ElementReference",
-                          "name": "panel-223"
-                        }
-                      }
-                    },
-                    {
-                      "kind": "GridLayoutItem",
-                      "spec": {
-                        "x": 5,
-                        "y": 12,
-                        "width": 5,
-                        "height": 7,
-                        "element": {
-                          "kind": "ElementReference",
-                          "name": "panel-222"
+                          "name": "panel-116"
                         }
                       }
                     }
