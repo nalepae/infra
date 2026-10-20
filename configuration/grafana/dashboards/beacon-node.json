@@ -4,12 +4,12 @@
   "metadata": {
     "name": "adnmforf",
     "namespace": "default",
-    "uid": "158c7b16-6b22-4dca-83b0-249266642a6f",
-    "resourceVersion": "1792528455245997",
-    "generation": 15,
-    "creationTimestamp": "2026-09-28T18:00:19Z",
+    "uid": "2aa0fea5-1eb8-4902-93ba-072f55d50ca6",
+    "resourceVersion": "1792529215122985",
+    "generation": 10,
+    "creationTimestamp": "2026-09-25T12:43:42Z",
     "labels": {
-      "grafana.app/deprecatedInternalID": "1451284607578112"
+      "grafana.app/deprecatedInternalID": "284442232414208"
     },
     "annotations": {
       "grafana.app/createdBy": "access-policy:service",
@@ -18,11 +18,11 @@
       "grafana.app/managerAllowsEdits": "true",
       "grafana.app/managerId": "dashboards",
       "grafana.app/saved-from-ui": "Grafana v13.0.11 (5486ed9899)",
-      "grafana.app/sourceChecksum": "5355ad805c9fc8af5c334dd5d62a17b8",
+      "grafana.app/sourceChecksum": "e99c5d2b6fe3074df87d6bf85a06f6ec",
       "grafana.app/sourcePath": "/var/lib/grafana/dashboards/beacon-node.json",
-      "grafana.app/sourceTimestamp": "1792526803000",
-      "grafana.app/updatedBy": "user:efzn1vl4z5ou8a",
-      "grafana.app/updatedTimestamp": "2026-10-20T20:34:15Z"
+      "grafana.app/sourceTimestamp": "1792528809000",
+      "grafana.app/updatedBy": "user:afzbk9ofdg3r4b",
+      "grafana.app/updatedTimestamp": "2026-10-20T20:46:55Z"
     }
   },
   "spec": {
@@ -1180,50 +1180,6 @@
                       }
                     },
                     "refId": "A",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "prometheus",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "prometheus"
-                      },
-                      "spec": {
-                        "editorMode": "code",
-                        "expr": "sum(validator_count)",
-                        "instant": false,
-                        "legendFormat": "Total",
-                        "range": true
-                      }
-                    },
-                    "refId": "B",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "prometheus",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "prometheus"
-                      },
-                      "spec": {
-                        "editorMode": "code",
-                        "expr": "validator_count{state=\"Active\"} / on() group_left sum(validator_count)",
-                        "instant": false,
-                        "legendFormat": "Active rate",
-                        "range": true
-                      }
-                    },
-                    "refId": "C",
                     "hidden": false
                   }
                 }
@@ -3682,7 +3638,7 @@
                   "color": "rgba(255,0,255,0.7)"
                 },
                 "filterValues": {
-                  "le": 1e-09
+                  "le": 1e-9
                 },
                 "legend": {
                   "show": false
@@ -5381,6 +5337,124 @@
           "transparent": true
         }
       },
+      "panel-236": {
+        "kind": "Panel",
+        "spec": {
+          "id": 236,
+          "title": "Validators stats",
+          "description": "",
+          "links": [],
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "prometheus",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "prometheus"
+                      },
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "sum(validator_count)",
+                        "instant": false,
+                        "legendFormat": "Total",
+                        "range": true
+                      }
+                    },
+                    "refId": "B",
+                    "hidden": false
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "query": {
+                      "kind": "DataQuery",
+                      "group": "prometheus",
+                      "version": "v0",
+                      "datasource": {
+                        "name": "prometheus"
+                      },
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "validator_count{state=\"Active\"} / on() group_left sum(validator_count)",
+                        "instant": false,
+                        "legendFormat": "Active rate",
+                        "range": true
+                      }
+                    },
+                    "refId": "C",
+                    "hidden": false
+                  }
+                }
+              ],
+              "transformations": [],
+              "queryOptions": {}
+            }
+          },
+          "vizConfig": {
+            "kind": "VizConfig",
+            "group": "stat",
+            "version": "13.0.11",
+            "spec": {
+              "options": {
+                "colorMode": "value",
+                "graphMode": "none",
+                "justifyMode": "auto",
+                "orientation": "auto",
+                "percentChangeColorMode": "standard",
+                "reduceOptions": {
+                  "calcs": [
+                    "lastNotNull"
+                  ],
+                  "fields": "",
+                  "values": false
+                },
+                "showPercentChange": false,
+                "textMode": "auto",
+                "wideLayout": true
+              },
+              "fieldConfig": {
+                "defaults": {
+                  "unit": "sishort",
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "value": 0,
+                        "color": "blue"
+                      }
+                    ]
+                  },
+                  "color": {
+                    "mode": "thresholds"
+                  }
+                },
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "options": "Active rate"
+                    },
+                    "properties": [
+                      {
+                        "id": "unit",
+                        "value": "percentunit"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "transparent": true
+        }
+      },
       "panel-24": {
         "kind": "Panel",
         "spec": {
@@ -6746,7 +6820,7 @@
                   "color": "rgba(255,0,255,0.7)"
                 },
                 "filterValues": {
-                  "le": 1e-09
+                  "le": 1e-9
                 },
                 "legend": {
                   "show": false
@@ -6847,7 +6921,7 @@
                   "color": "rgba(255,0,255,0.7)"
                 },
                 "filterValues": {
-                  "le": 1e-09
+                  "le": 1e-9
                 },
                 "legend": {
                   "show": false
@@ -7275,7 +7349,7 @@
                   "color": "rgba(255,0,255,0.7)"
                 },
                 "filterValues": {
-                  "le": 1e-09
+                  "le": 1e-9
                 },
                 "legend": {
                   "show": false
@@ -7657,7 +7731,7 @@
                   "color": "rgba(255,0,255,0.7)"
                 },
                 "filterValues": {
-                  "le": 1e-09
+                  "le": 1e-9
                 },
                 "legend": {
                   "show": false
@@ -11527,7 +11601,7 @@
                       "spec": {
                         "x": 7,
                         "y": 0,
-                        "width": 5,
+                        "width": 3,
                         "height": 3,
                         "element": {
                           "kind": "ElementReference",
@@ -11538,7 +11612,7 @@
                     {
                       "kind": "GridLayoutItem",
                       "spec": {
-                        "x": 12,
+                        "x": 10,
                         "y": 0,
                         "width": 4,
                         "height": 6,
@@ -11551,26 +11625,13 @@
                     {
                       "kind": "GridLayoutItem",
                       "spec": {
-                        "x": 16,
+                        "x": 14,
                         "y": 0,
                         "width": 4,
                         "height": 6,
                         "element": {
                           "kind": "ElementReference",
                           "name": "panel-223"
-                        }
-                      }
-                    },
-                    {
-                      "kind": "GridLayoutItem",
-                      "spec": {
-                        "x": 20,
-                        "y": 0,
-                        "width": 4,
-                        "height": 12,
-                        "element": {
-                          "kind": "ElementReference",
-                          "name": "panel-235"
                         }
                       }
                     },
@@ -11592,7 +11653,7 @@
                       "spec": {
                         "x": 7,
                         "y": 3,
-                        "width": 5,
+                        "width": 3,
                         "height": 3,
                         "element": {
                           "kind": "ElementReference",
@@ -11605,6 +11666,19 @@
                       "spec": {
                         "x": 0,
                         "y": 6,
+                        "width": 4,
+                        "height": 12,
+                        "element": {
+                          "kind": "ElementReference",
+                          "name": "panel-235"
+                        }
+                      }
+                    },
+                    {
+                      "kind": "GridLayoutItem",
+                      "spec": {
+                        "x": 4,
+                        "y": 6,
                         "width": 14,
                         "height": 6,
                         "element": {
@@ -11616,13 +11690,26 @@
                     {
                       "kind": "GridLayoutItem",
                       "spec": {
-                        "x": 14,
-                        "y": 6,
-                        "width": 6,
-                        "height": 6,
+                        "x": 4,
+                        "y": 12,
+                        "width": 9,
+                        "height": 4,
                         "element": {
                           "kind": "ElementReference",
                           "name": "panel-116"
+                        }
+                      }
+                    },
+                    {
+                      "kind": "GridLayoutItem",
+                      "spec": {
+                        "x": 13,
+                        "y": 12,
+                        "width": 5,
+                        "height": 4,
+                        "element": {
+                          "kind": "ElementReference",
+                          "name": "panel-236"
                         }
                       }
                     }
