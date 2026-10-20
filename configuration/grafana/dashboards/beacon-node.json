@@ -4,12 +4,12 @@
   "metadata": {
     "name": "adnmforf",
     "namespace": "default",
-    "uid": "2aa0fea5-1eb8-4902-93ba-072f55d50ca6",
-    "resourceVersion": "1792529215122985",
-    "generation": 10,
-    "creationTimestamp": "2026-09-25T12:43:42Z",
+    "uid": "158c7b16-6b22-4dca-83b0-249266642a6f",
+    "resourceVersion": "1792529784795011",
+    "generation": 18,
+    "creationTimestamp": "2026-09-28T18:00:19Z",
     "labels": {
-      "grafana.app/deprecatedInternalID": "284442232414208"
+      "grafana.app/deprecatedInternalID": "1451284607578112"
     },
     "annotations": {
       "grafana.app/createdBy": "access-policy:service",
@@ -18,11 +18,11 @@
       "grafana.app/managerAllowsEdits": "true",
       "grafana.app/managerId": "dashboards",
       "grafana.app/saved-from-ui": "Grafana v13.0.11 (5486ed9899)",
-      "grafana.app/sourceChecksum": "e99c5d2b6fe3074df87d6bf85a06f6ec",
+      "grafana.app/sourceChecksum": "5748ac99c95b93adc6671ce81091e2bd",
       "grafana.app/sourcePath": "/var/lib/grafana/dashboards/beacon-node.json",
-      "grafana.app/sourceTimestamp": "1792528809000",
-      "grafana.app/updatedBy": "user:afzbk9ofdg3r4b",
-      "grafana.app/updatedTimestamp": "2026-10-20T20:46:55Z"
+      "grafana.app/sourceTimestamp": "1792529293000",
+      "grafana.app/updatedBy": "user:efzn1vl4z5ou8a",
+      "grafana.app/updatedTimestamp": "2026-10-20T20:56:24Z"
     }
   },
   "spec": {
@@ -1554,7 +1554,7 @@
         "kind": "Panel",
         "spec": {
           "id": 18,
-          "title": "Slot in epoch",
+          "title": "Epoch completion",
           "description": "",
           "links": [],
           "data": {
@@ -1595,14 +1595,14 @@
             "version": "13.0.11",
             "spec": {
               "options": {
-                "barShape": "flat",
+                "barShape": "rounded",
                 "barWidthFactor": 0.5,
                 "effects": {
                   "barGlow": true,
                   "centerGlow": true,
-                  "gradient": false
+                  "gradient": true
                 },
-                "endpointMarker": "point",
+                "endpointMarker": "glow",
                 "minVizHeight": 75,
                 "minVizWidth": 75,
                 "orientation": "auto",
@@ -1613,14 +1613,15 @@
                   "fields": "",
                   "values": false
                 },
-                "segmentCount": 1,
+                "segmentCount": 32,
                 "segmentSpacing": 0.3,
-                "shape": "gauge",
+                "shape": "circle",
                 "showThresholdLabels": false,
                 "showThresholdMarkers": false,
                 "sizing": "auto",
                 "sparkline": true,
-                "textMode": "auto"
+                "text": {},
+                "textMode": "none"
               },
               "fieldConfig": {
                 "defaults": {
