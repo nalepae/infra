@@ -57,6 +57,7 @@ All other ports (Nethermind JSON-RPC `8545` and Engine API `8551`; beacon REST `
 | `BEACON_IMAGE` | Docker image (with tag) to use for the `beacon` service, e.g. `gcr.io/prysmaticlabs/prysm/beacon-chain:v6.0.4`. |
 | `P2P_HOST_IP` | Public IP address of the host, advertised by the beacon node to peers (`--p2p-host-ip`). Required so inbound libp2p connections from the rest of the network can reach this node. |
 | `HTTP_MEV_RELAY` | MEV relay URL passed to the beacon node (`--http-mev-relay`), e.g. `http://mev-boost:18550`. Leave empty (`HTTP_MEV_RELAY=`) to disable MEV-boost and build blocks locally. |
+| `SUGGESTED_FEE_RECIPIENT` | Execution-layer address passed to the beacon node (`--suggested-fee-recipient`) that receives priority fees and MEV payments from proposed blocks. Leave empty (`SUGGESTED_FEE_RECIPIENT=`) to start without one: Prysm logs a warning and falls back to the burn address (validators can still set their own via `prepareBeaconProposer`). |
 
 
 ## Links

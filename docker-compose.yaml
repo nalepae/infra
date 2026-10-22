@@ -102,7 +102,7 @@ services:
     command:
       - --accept-terms-of-use
       - --${NETWORK}
-      - --suggested-fee-recipient=0xbB52ca978a8a2598e496dC1Eed76C23F2400541b
+      - --suggested-fee-recipient=${SUGGESTED_FEE_RECIPIENT}
       - --execution-endpoint=http://execution:8551
       - --jwt-secret=/var/run/ipc/jwt-secret
       - --checkpoint-sync-url=https://beaconstate-${NETWORK}.chainsafe.io
@@ -128,6 +128,7 @@ services:
       - NETWORK=${NETWORK}
       - P2P_HOST_IP=${P2P_HOST_IP}
       - HTTP_MEV_RELAY=${HTTP_MEV_RELAY}
+      - SUGGESTED_FEE_RECIPIENT=${SUGGESTED_FEE_RECIPIENT}
 
   peer-geo-exporter:
     container_name: peer-geo-exporter
