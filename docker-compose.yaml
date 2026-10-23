@@ -113,7 +113,6 @@ services:
       - --grpc-gateway-host=0.0.0.0
       - --http-mev-relay=${HTTP_MEV_RELAY}
       - --verbosity=debug
-      - --blob-storage-layout=by-epoch
       - --monitoring-host=0.0.0.0
       - --pprof
       - --pprofaddr=0.0.0.0
