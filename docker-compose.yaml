@@ -122,6 +122,7 @@ services:
       - --trace-sample-fraction=1.0
       - --postpone-shutdown-for-proposals
       - --enable-state-diff
+      - --disable-partial-data-columns
     environment:
       - BEACON_IMAGE=${BEACON_IMAGE}
       - NETWORK=${NETWORK}
