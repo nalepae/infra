@@ -5,8 +5,8 @@
     "name": "adnmforf",
     "namespace": "default",
     "uid": "fe1214f3-312e-4853-bd0f-5cbb485f7329",
-    "resourceVersion": "1793133302717998",
-    "generation": 9,
+    "resourceVersion": "1793951409649001",
+    "generation": 10,
     "creationTimestamp": "2026-10-22T22:14:55Z",
     "labels": {
       "grafana.app/deprecatedInternalID": "1205466081570816"
@@ -22,7 +22,7 @@
       "grafana.app/sourcePath": "/var/lib/grafana/dashboards/beacon-node.json",
       "grafana.app/sourceTimestamp": "1792529829000",
       "grafana.app/updatedBy": "user:fg21bizvsms5cf",
-      "grafana.app/updatedTimestamp": "2026-10-27T20:35:02Z"
+      "grafana.app/updatedTimestamp": "2026-11-06T07:50:09Z"
     }
   },
   "spec": {
@@ -4344,7 +4344,7 @@
                 "segmentSpacing": 0.3,
                 "shape": "gauge",
                 "showThresholdLabels": false,
-                "showThresholdMarkers": false,
+                "showThresholdMarkers": true,
                 "sizing": "auto",
                 "sparkline": true,
                 "textMode": "auto"
